@@ -22,4 +22,19 @@ Pepper mr rammot (se renseigner sur la version de pyhon du robot)
 	- Férier 09/04 
 
 	- Prise en main du robot - 10/04
+		- Les actions qu'il peut effectuer : 
+		
+			Jouer des audios
+			Parler/Répéter
+			Questionnaires (questions/réponses)
+			Mouvements (25 articulations en tout → chorégraphies)
+			Jeu de couleur avec led (adaptation d’environnement)
+			Travail de sensation (touché, vision …)
+			Autres fonctions de programmation (maths, jeu de données, …)
+			Enregistrer des vidéo
+			Différentes langues (20)
+			Animations (emotes)
+
+			Pepper peut en plus jouer une vidéo (écran)
+
 	- Recherche de scénario pédagogique - 10/04
