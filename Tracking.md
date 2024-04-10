@@ -14,7 +14,12 @@ Pepper mr rammot (se renseigner sur la version de pyhon du robot)
 	3 - Acceuil UDM	(NAO)
 		- Montrer ce que les robots peuvent faire
 
-## Première phase 08/04 :
+## Première phase :
 
 	- Selection et reflexion sur le projet - 08/04
 	- Recherche de parcour pédagogique - 08/04
+
+	- Férier 09/04 
+
+	- Prise en main du robot - 10/04
+	- Recherche de scénario pédagogique - 10/04
