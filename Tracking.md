@@ -38,3 +38,9 @@ Pepper mr rammot (se renseigner sur la version de pyhon du robot)
 			Pepper peut en plus jouer une vidéo (écran)
 
 	- Recherche de scénario pédagogique - 10/04
+
+	- Férier 11/04 
+
+	- Recherche de scénario pédagigique 12/04
+	- Préparation des entretiens avec century et Odysseo de la semaine prochaine (utilisation Miro) 12/04
+	- Recherche sur la faune et les enjeux de l'environement 12/04
