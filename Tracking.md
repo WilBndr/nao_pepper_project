@@ -44,3 +44,7 @@ Pepper mr rammot (se renseigner sur la version de pyhon du robot)
 	- Recherche de scénario pédagigique 12/04
 	- Préparation des entretiens avec century et Odysseo de la semaine prochaine (utilisation Miro) 12/04
 	- Recherche sur la faune et les enjeux de l'environement 12/04
+
+	- Finalisation des préparations de l'entretien avec Odysseo, recherches sur le sites internet 15/04
+	- Recherche sur l'ONG depuis leurs site 15/04
+	- Tests avec le robot (NAO) 15/04
