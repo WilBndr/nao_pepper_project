@@ -31,6 +31,7 @@ avec l'université des mascareigne.
 - cause/répercussion d’action néfaste à la plage  (explication)
 - faire des rappels de comportement durables (consommation de fruits de mer, réduction de la pollution …)
 - questionnaire sur la vie marine locale
+- question portant sur les environnement de l'aquarium (forêt, lagon,vie marine coraux)
 
 **Les problèmes que nous souhaitons aborder**
 
@@ -44,6 +45,18 @@ avec l'université des mascareigne.
     L’insularité de Maurice la rend vulnérable aux activités humaines, en particulier au tourisme florissant. Chaque année, des centaines de milliers de visiteurs affluent pour profiter des activités aquatiques, créant pollution et perturbation des espèces.
     La construction d’hôtels en bordure des côtes altère le littoral, tandis que les développements touristiques impactent la nature environnante. Les croisières de luxe et le flux touristique croissant accroissent l’empreinte carbone liée aux voyages.
     Malgré les efforts pour sensibiliser et promouvoir les bonnes pratiques, l’impact demeure. La préservation de ce paradis passe par une prise de conscience collective. Réduire l’impact des constructions, réguler les flux touristiques et promouvoir un tourisme durable sont des enjeux cruciaux pour préserver la beauté et la richesse naturelle de Maurice. Une responsabilité partagée s’impose pour assurer la pérennité de ce trésor insulaire.
+
+**Les problèmes que nous avons retrouvé sur leurs sites**
+
+    La pollution plastique 
+      Leurs réponse a ce problème : campagnes de recherche et de sensibilisation
+
+    Le braconnage 
+      Leurs réponse a ce problème : programmes de conscientisation et d’éducation
+
+    Le blanchissement des coraux 
+      Leurs réponse a ce problème : reproduction des coraux pour ensuite les réintroduire dans l’océan
+
 
 ## Scénarios Pédagogiques
 
