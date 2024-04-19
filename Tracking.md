@@ -45,4 +45,9 @@
 - **Visite Odysseo** - 16/04
 - **Début de l'implémentation de la danse** - 17/04
 - **Implémentation de l'enssemeble des mouvements de danse** -18/04
-- **Test des mouvement de danse en condition réel** - 19/04 - Problème lié a l'équilibre
+- **Test des mouvement de danse en condition réel** - 19/04 
+  - On a pu observer lors de cette phase de test que le robot perd en équilibre lors de sa dance, cependant en maintenant ses pieds au sol, le robot peut effectuer sa dance sans aucun problème. 
+  - Problème lié a l'équilibre (piste de résolution) : 
+    - Réduction de l'amplitude des mouvement
+    - Retravailler la position de base du robot pour améliorer l'équilibre
+    - Réduction de la vitesse des mouvement et réduction du nombre de mouvement
