@@ -45,3 +45,4 @@
 - **Visite Odysseo** - 16/04
 - **Début de l'implémentation de la danse** - 17/04
 - **Implémentation de l'enssemeble des mouvements de danse** -18/04
+- **Test des mouvement de danse en condition réel** - 19/04 - Problème lié a l'équilibre
