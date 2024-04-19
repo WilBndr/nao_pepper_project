@@ -2800,11 +2800,11 @@
                     <Key frame="180" value="-4.83798" />
                   </ActuatorCurve>
                   <ActuatorCurve name="value" actuator="LShoulderPitch" mute="0" unit="0">
-                    <Key frame="20" value="-67.8" />
+                    <Key frame="20" value="-40.5" />
                     <Key frame="40" value="85.6" />
                     <Key frame="60" value="85.6" />
                     <Key frame="80" value="85.6" />
-                    <Key frame="100" value="-67.8" />
+                    <Key frame="100" value="-40.5" />
                     <Key frame="120" value="-50.2" />
                     <Key frame="140" value="-48.7" />
                     <Key frame="160" value="70.7" />
@@ -2932,11 +2932,11 @@
                     <Key frame="180" value="-4.83798" />
                   </ActuatorCurve>
                   <ActuatorCurve name="value" actuator="RShoulderPitch" mute="0" unit="0">
-                    <Key frame="20" value="-72.3" />
+                    <Key frame="20" value="-42.7" />
                     <Key frame="40" value="-59.7" />
                     <Key frame="60" value="-59.7" />
                     <Key frame="80" value="58.9" />
-                    <Key frame="100" value="-72.3" />
+                    <Key frame="100" value="-42.7" />
                     <Key frame="120" value="71" />
                     <Key frame="140" value="71" />
                     <Key frame="160" value="71" />
