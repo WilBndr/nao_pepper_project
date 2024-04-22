@@ -53,3 +53,4 @@
     - Réduction de la vitesse des mouvement et réduction du nombre de mouvement
 - **implémentation de solution au problème** - 19/04
 - **Amélioration globale de la dynamique du robot** - 22/04
+- **Test d'affichage sur le second robot** - 22/04
