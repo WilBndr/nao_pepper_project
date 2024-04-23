@@ -54,3 +54,7 @@
 - **implémentation de solution au problème** - 19/04
 - **Amélioration globale de la dynamique du robot** - 22/04
 - **Test d'affichage sur le second robot** - 22/04
+- **Test de la dynamique amélioré concluente pour un mouvement** - 23/04
+  - **Dynamique a apporter sur les autres robots**
+- **Test du programme de bienvenue avec Pepper** - 23/04
+  - **Correction de problème logicielle lié à Choregraphe**
