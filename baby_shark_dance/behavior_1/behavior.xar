@@ -3253,7 +3253,7 @@
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="startGrandpaDynamicDance (1)" id="15" localization="8" tooltip="" x="754" y="680">
+            <Box name="startGrandpaDynamicDance (1)" id="15" localization="8" tooltip="" x="780" y="683">
               <bitmap>media/images/box/box-timeLine.png</bitmap>
               <script language="4">
                 <content>
@@ -4185,7 +4185,7 @@
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="startBabyDynamicDanceCoordonate" id="17" localization="8" tooltip="" x="544" y="682">
+            <Box name="startBabyDynamicDanceCoordonate" id="17" localization="8" tooltip="" x="628" y="683">
               <bitmap>media/images/box/box-timeLine.png</bitmap>
               <script language="4">
                 <content>
@@ -5231,7 +5231,7 @@
                 </ActuatorList>
               </Timeline>
             </Box>
-            <Box name="startDadDynamicDance (1)" id="18" localization="8" tooltip="" x="965" y="668">
+            <Box name="startDadDynamicDance (1)" id="18" localization="8" tooltip="" x="952" y="685">
               <bitmap>media/images/box/box-timeLine.png</bitmap>
               <script language="4">
                 <content>
