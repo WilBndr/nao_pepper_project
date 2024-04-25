@@ -55,6 +55,12 @@
 - **Amélioration globale de la dynamique du robot** - 22/04
 - **Test d'affichage sur le second robot** - 22/04
 - **Test de la dynamique amélioré concluente pour un mouvement** - 23/04
-  - **Dynamique a apporter sur les autres robots**
+  - Dynamique a apporter sur les autres robots
 - **Test du programme de bienvenue avec Pepper** - 23/04
-  - **Correction de problème logicielle lié à Choregraphe**
+  - Correction de problème logicielle lié à Choregraphe
+- **Recherche et mise en place d'un enviro,ement de dévellopment pour déployer une application kotlin sur la tablette du robot Pepper** - 24/04
+- **Coordination son/mouvement du robot pepper** - 24/04
+- **Finalisation de la coordination des mouvements de NAO avec le son** - 25/04
+ - Vidéo démonstrative de la danse avec NAO
+- **Discussion du futur dévellopement réalisé avec pepper** - 25/04
+  - Test de l'utilisation de pepper (test de reconnaissance vocal, de la tablette tactile ainso que de la parole)
