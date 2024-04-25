@@ -108,3 +108,8 @@ Dans l'attente du script éducatif, nous allons dans un premier temps implément
 Nous avons également déterminé un concept d'utilisation du robot PEPPER qui aura pour objectif d'accueillir les visiteurs au sein de l'aquarium.
 
 L'objectif final sera de mesurer l'impact de l'intervention du robot sur l'attention et la compréhension des enjeux abordés.
+
+
+## Utilisation de Pepper
+
+Lors de notre entretient avec Odysseo, ces derniers nous ont fait part de leur souhait d'utiliser le robot pepper de manière a présenter l'aquarium. Pour améliorer cette idée de  base nous leurs avons proposer de dévellopper une application web pour se servir de la tablette tactile présente sur le buste du robot de manière a profiter de son potentiel maximum ainsi que pour faciliter l'interraction avec ce dernier.
