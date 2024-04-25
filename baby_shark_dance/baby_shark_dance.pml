@@ -5,7 +5,10 @@
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
-    <Resources />
+    <Resources>
+        <File name="baby_shark_dance" src="baby_shark_dance.mp4" />
+        <File name="baby_shark_dance" src="baby_shark_dance.mp3" />
+    </Resources>
     <Topics />
     <IgnoredPaths />
     <Translations auto-fill="en_US">
