@@ -64,3 +64,5 @@
  - Vidéo démonstrative de la danse avec NAO
 - **Discussion du futur dévellopement réalisé avec pepper** - 25/04
   - Test de l'utilisation de pepper (test de reconnaissance vocal, de la tablette tactile ainso que de la parole)
+- **Réception du script réalisé par Odysseo** - 26/04
+- **Implémentation du script** - 23/04
