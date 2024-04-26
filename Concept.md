@@ -113,3 +113,9 @@ L'objectif final sera de mesurer l'impact de l'intervention du robot sur l'atten
 ## Utilisation de Pepper
 
 Lors de notre entretient avec Odysseo, ces derniers nous ont fait part de leur souhait d'utiliser le robot pepper de manière a présenter l'aquarium. Pour améliorer cette idée de  base nous leurs avons proposer de dévellopper une application web pour se servir de la tablette tactile présente sur le buste du robot de manière a profiter de son potentiel maximum ainsi que pour faciliter l'interraction avec ce dernier.
+
+**Technologie app Pepper** 
+
+Du fait qu'alderaban ait été racheté par softbank les appli android n'ont plus disposé de maintenance elle sont donc devenu complexe a devellopper ajd (version windows, version android studio etc...)
+
+Nous avons déterminé que le plus simple a dévelloper et a et déployer est donc une application web
