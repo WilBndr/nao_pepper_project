@@ -109,6 +109,33 @@ Nous avons également déterminé un concept d'utilisation du robot PEPPER qui a
 
 L'objectif final sera de mesurer l'impact de l'intervention du robot sur l'attention et la compréhension des enjeux abordés.
 
+## Script du 26/04
+
+    Bienvenue
+    Bonjour je suis Nao. (NAO pause and look at people, kind of waiting for an answer)
+    Bienvenue à Odysseo, ce magnifique lieu où vous allez découvrir le monde marin de l’ile Maurice et de l’Océan Indien.  (NAO moves to "supermen position")
+    Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau. (NAO makes mind blowing gesture https://tenor.com/view/wow-amazed-woah-shocked-mind-blown-gif-17460895) 
+    
+    Notre moto est Connaitre, Aimer, Protéger. Nous ne pouvons pas aimer ce que nous ne connaissons pas et nous ne pouvons pas protéger ce que nous n’aimons pas. (NAO bring his left hand in the heart while talking)
+    Information très importante, le premier couloir (NAO montre l'entrée à droite) de la visite consiste à la découverte. Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez. (NAO porte la main à la tête comme s'il réfléchissait à quelque chose d'important).
+    
+    Après cette zone nous vous emmènerons à découvrir les eaux peu profondes, le lagon, la plage, la mangrove, les habitats terrestres puis retour à la mer pour une immersion totale. Je suis sûr que vous l'apprécierez. (NAO ouvre son bras sur le côté en position V)
+    Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer. (NAO in supermen position)
+    Il est toutefois nécessaire de respecter les consignes suivantes pour le bien-être des animaux et pour avoir une bonne visite :
+
+    - Ne pas taper sur les vitres. (NAO moves like he is taping something)
+    
+    - Ne pas utiliser de flash pour les photos. (NAO pretends he is doing a picture)
+
+    - Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse. (NAO moves very slow like is pretending he is running in slow motion)
+
+    - Ne pas toucher l’eau et ne rien jeter dans les bassins. (NAO holds is hand up and open like he is letting something go from his had while he is also saying no with is head)
+
+    Veuillez aussi noter qu’après le tunnel, la visite n’est par terminée. Suivez les petits poissons sur le sol pour découvrir l’autre partie du monde marin. . Au final vous retrouverez notre vue subocéanique (NAO makes again the mind blowing gesture) et très important la roue des actions.
+    Merci et j'espère que vous en apprendrez davantage et que vous vous sentirez inspiré pour nous aider à protéger l'habitat sans lequel nous ne pouvons pas vivre : l'océan. (NAO again is in "supermen position")
+    Je vous souhaite une très bonne visite. (NAO says goodbye with is hand) 
+
+
 
 ## Utilisation de Pepper
 
