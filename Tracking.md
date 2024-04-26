@@ -1,6 +1,6 @@
 # Tracking NAO_PEPPER_Project
 
-## Points abordés lors de notre entrevu avec Dr.Shaad Ally Toofanee
+## Points abordés lors de notre entrevue avec Dr. Shaad Ally Toofanee
 
 ### 1. Travail avec une ONG (Century) pour les enfants handicapés (NAO)
 - Visite sur place pour comprendre comment aider avec la programmation de nos robots
@@ -12,6 +12,10 @@
 
 ### 3. Accueil à l'UDM (NAO)
 - Présentation des capacités des robots
+
+## Laboratoire robotique UDM
+
+Après un entretien avec le seul professeur de robotique mauricien enseignant à l'UDM, nous avons appris que le laboratoire avait été créé en 2019 pour pallier un manque de professionnels capables d'effectuer la maintenance des robots présents en entreprise. Celles-ci se trouvaient donc naturellement sceptiques quant à l'idée d'investir en robotique. Ce manque était accentué du fait que l'île est assez éloignée du reste du monde, rendant la venue de techniciens qualifiés coûteuse. L'université a été visionnaire dans sa manière de renforcer et d'accélérer le développement de l'île en démontrant le potentiel des robots et en formant les personnes adéquates pour les entretenir.
 
 ## Première phase :
 
@@ -44,25 +48,28 @@
   - [Compte Rendu](meeting_minutes/meeting_16_04.md)
 - **Visite Odysseo** - 16/04
 - **Début de l'implémentation de la danse** - 17/04
-- **Implémentation de l'enssemeble des mouvements de danse** -18/04
-- **Test des mouvement de danse en condition réel** - 19/04 
-  - On a pu observer lors de cette phase de test que le robot perd en équilibre lors de sa dance, cependant en maintenant ses pieds au sol, le robot peut effectuer sa dance sans aucun problème. 
-  - Problème lié a l'équilibre (piste de résolution) : 
-    - Réduction de l'amplitude des mouvement
+- **Implémentation de l'ensemble des mouvements de danse** -18/04
+- **Test des mouvements de danse en conditions réelles** - 19/04 
+  - On a pu observer lors de cette phase de test que le robot perd en équilibre lors de sa danse, cependant en maintenant ses pieds au sol, le robot peut effectuer sa danse sans aucun problème. 
+  - Problème lié à l'équilibre (pistes de résolution) : 
+    - Réduction de l'amplitude des mouvements
     - Retravailler la position de base du robot pour améliorer l'équilibre
-    - Réduction de la vitesse des mouvement et réduction du nombre de mouvement
-- **implémentation de solution au problème** - 19/04
+    - Réduction de la vitesse des mouvements et réduction du nombre de mouvements
+- **Implémentation de solutions au problème** - 19/04
 - **Amélioration globale de la dynamique du robot** - 22/04
 - **Test d'affichage sur le second robot** - 22/04
-- **Test de la dynamique amélioré concluente pour un mouvement** - 23/04
-  - Dynamique a apporter sur les autres robots
+- **Test de la dynamique améliorée concluant pour un mouvement** - 23/04
+  - Dynamique à apporter sur les autres robots
 - **Test du programme de bienvenue avec Pepper** - 23/04
-  - Correction de problème logicielle lié à Choregraphe
-- **Recherche et mise en place d'un enviro,ement de dévellopment pour déployer une application kotlin sur la tablette du robot Pepper** - 24/04
-- **Coordination son/mouvement du robot pepper** - 24/04
+  - Correction de problèmes logiciels liés à Choregraphe
+- **Recherche et mise en place d'un environnement de développement pour déployer une application Kotlin sur la tablette du robot Pepper** - 24/04
+    - Alderaban acheté par SoftBank -> app Android plus maintenue et complexe à redévelopper aujourd'hui (versions Windows, version Android Studio, etc.), le plus simple à développer et à déployer est donc une application web
+
+	- Cette issue est due au fait que les robots développés par Alderaban étaient vendus à un prix élevé, leur principal atout commercial était de pouvoir leur faire faire ce que les entreprises investissant sur ces robots souhaitaient. Ce qui a marché pour NAO puisque le robot était encore abordable, mais cela ne s'est pas reproduit pour Pepper qui était moins accessible. C'est ce qui a amené au rachat d'Alderaban par SoftBank
+- **Coordination son/mouvement du robot Pepper** - 24/04
 - **Finalisation de la coordination des mouvements de NAO avec le son** - 25/04
  - Vidéo démonstrative de la danse avec NAO
-- **Discussion du futur dévellopement réalisé avec pepper** - 25/04
-  - Test de l'utilisation de pepper (test de reconnaissance vocal, de la tablette tactile ainso que de la parole)
+- **Discussion du futur développement réalisé avec Pepper** - 25/04
+  - Test de l'utilisation de Pepper (test de reconnaissance vocale, de la tablette tactile ainsi que de la parole)
 - **Réception du script réalisé par Odysseo** - 26/04
 - **Implémentation du script** - 23/04
