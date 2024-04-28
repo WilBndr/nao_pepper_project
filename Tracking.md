@@ -72,4 +72,4 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Discussion du futur développement réalisé avec Pepper** - 25/04
   - Test de l'utilisation de Pepper (test de reconnaissance vocale, de la tablette tactile ainsi que de la parole)
 - **Réception du script réalisé par Odysseo** - 26/04
-- **Implémentation du script** - 23/04
+- **Implémentation du script** - 26/04
