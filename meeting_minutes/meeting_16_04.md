@@ -1,5 +1,8 @@
 # Meeting Minutes
 
+**Meeting Objective** : Introduce NAO to the aquarium and define its use 
+**Date : 16/04/2024**
+
 ## Participants
 - Willem Boender and Cyril Romero, BUT 2 Students, University of Limoges
 - Bayram Gokcen, BUT 3 Student, University of Limoges
