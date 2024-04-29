@@ -126,10 +126,9 @@
     <context>
         <name>behavior_1/behavior.xar:/supermen position/behavior_layer1/phrase/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Bienvenue à Odysseo, ce magnifique lieu où vous allez découvrir le monde marin de l’ile Maurice et de l’Océan Indien.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Bienvenue à Odysseo, ce magnifique lieu où vous allez découvrir le monde marin de l’ile Maurice et de l’Océan Indien.</translation>
+            <translation type="obsolete">Bienvenue à Odysseo, ce magnifique lieu où vous allez découvrir le monde marin de l’ile Maurice et de l’Océan Indien.</translation>
         </message>
     </context>
     <context>
@@ -148,6 +147,20 @@
             <source>Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</source>
             <comment>Text</comment>
             <translation type="unfinished">Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/wow/behavior_layer1/phrase/Animated Say</name>
+        <message>
+            <source>Hello</source>
+            <comment>Text</comment>
+            <translation type="vanished">Hello</translation>
+        </message>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
         </message>
     </context>
 </TS>
