@@ -74,3 +74,5 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Réception du script réalisé par Odysseo** - 26/04
 - **Implémentation du script** - 26/04
 - **Mise en place du multilanguages pour le robot** - 29/04
+- **Test application web pour controle distant du robot** - 30/04
+- **Finalisation du script fournis par Odysseo** - 30/04
