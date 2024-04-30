@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Server</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Test Server</h1>
+    <p>Index: {{ current_index }}</p>
+    <form id="incrementForm" action="/increment_index" method="post">
+        <button type="submit">Click me!</button>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('#incrementForm').submit(function(event) {
+                // Empêcher le comportement par défaut du formulaire
+                event.preventDefault();
+                // Envoyer une requête POST au serveur
+                $.post('/increment_index');
+                // Recharger la page après un court délai
+                setTimeout(function() {
+                    location.reload();
+                }, 100); // 100 millisecondes de délai avant le rafraîchissement
+            });
+        });
+    </script>
+</body>
+</html>
