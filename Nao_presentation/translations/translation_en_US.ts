@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en_US">
     <context>
+        <name>behavior_1/behavior.xar:/Animated Say</name>
+        <message>
+            <source>Hello</source>
+            <comment>Text</comment>
+            <translation type="vanished">Hello</translation>
+        </message>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/OdysseoInfo/behavior_layer1/phrase/Animated Say</name>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
+        </message>
+    </context>
+    <context>
         <name>behavior_1/behavior.xar:/Say</name>
         <message>
             <source>Hello</source>
@@ -33,12 +56,11 @@
     <context>
         <name>behavior_1/behavior.xar:/Say (3)</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Il est toutefois nécessaire de respecter les consignes suivantes pour le bien-être des animaux et pour avoir une bonne visite :
 
 </source>
             <comment>Text</comment>
-            <translation type="unfinished">Il est toutefois nécessaire de respecter les consignes suivantes pour le bien-être des animaux et pour avoir une bonne visite :
+            <translation type="obsolete">Il est toutefois nécessaire de respecter les consignes suivantes pour le bien-être des animaux et pour avoir une bonne visite :
 
 </translation>
         </message>
@@ -81,10 +103,9 @@
     <context>
         <name>behavior_1/behavior.xar:/entrée/behavior_layer1/texte/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Information très importante, le premier couloir de la visite consiste à la découverte.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Information très importante, le premier couloir de la visite consiste à la découverte.</translation>
+            <translation type="obsolete">Information très importante, le premier couloir de la visite consiste à la découverte.</translation>
         </message>
     </context>
     <context>
@@ -99,10 +120,9 @@
     <context>
         <name>behavior_1/behavior.xar:/mots clés/behavior_layer1/phrase mot clé/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Notre moto est Connaitre, Aimer, Protéger. Nous ne pouvons pas aimer ce que nous ne connaissons pas et nous ne pouvons pas protéger ce que nous n’aimons pas.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Notre moto est Connaitre, Aimer, Protéger. Nous ne pouvons pas aimer ce que nous ne connaissons pas et nous ne pouvons pas protéger ce que nous n’aimons pas.</translation>
+            <translation type="obsolete">Notre moto est Connaitre, Aimer, Protéger. Nous ne pouvons pas aimer ce que nous ne connaissons pas et nous ne pouvons pas protéger ce que nous n’aimons pas.</translation>
         </message>
     </context>
     <context>
@@ -117,10 +137,26 @@
     <context>
         <name>behavior_1/behavior.xar:/reflexion/behavior_layer1/phrase/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez.</translation>
+            <translation type="obsolete">Je vous recommande vraiment de retrouver notre Mascote Yoctopus, avant la fin du couloir et de faire le jeu qu'il propose. Je vais vous aider, il est juste avant les 3 aquariums à droite. Ils se ressemblent tous mais ne le sont pas. Yoctopus est une pieuvre très cool et intelligente, il vous en dira plus. J'espère que vous le trouverez.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/supermanPanel/behavior_layer1/phrase/Say</name>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/supermen position (1)/behavior_layer1/phrase/Say</name>
+        <message>
+            <source>Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</translation>
         </message>
     </context>
     <context>
@@ -143,10 +179,9 @@
     <context>
         <name>behavior_1/behavior.xar:/supermen position2/behavior_layer1/phrase/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</translation>
+            <translation type="obsolete">Au cours de la visite, vous allez voir des panneaux informatifs qui vous informent sur la zone. N’hésitez pas à les lire pour avoir des informations et aussi pour savoir comment vous pouvez aider. Si vous voulez en apprendre plus sur les espèces, regardez les écrans. Vous verrez défiler les informations sur les espèces que vous pouvez observer.</translation>
         </message>
     </context>
     <context>
@@ -157,10 +192,9 @@
             <translation type="vanished">Hello</translation>
         </message>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
+            <translation type="obsolete">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
         </message>
     </context>
 </TS>
