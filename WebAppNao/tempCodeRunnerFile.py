@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect, url_for
 import socket
 
@@ -23,13 +22,14 @@ def increment_index():
 
 if __name__ == '__main__':
     # Obtention de l'adresse IP de l'ordinateur
-    adresse_ip = socket.gethostbyname(socket.gethostname())
-    print("Adresse IP : %s" % adresse_ip)
+    hostname = socket.gethostname()
+    adresse_ip = socket.gethostbyname(hostname)
+    print(f"Adresse IP : {adresse_ip}")
 
     # Définition du port pour le serveur Flask
     port = 5000  # Par défaut, utilisez un autre port si nécessaire
 
-    print("Port : %d" % port)
+    print(f"Port : {port}")
 
     # Lancement du serveur Flask
-    app.run(host=adresse_ip, port=port)
+    app.run(host='0.0.0.0', port=port)
