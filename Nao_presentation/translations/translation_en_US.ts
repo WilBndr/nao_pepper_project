@@ -85,10 +85,9 @@
     <context>
         <name>behavior_1/behavior.xar:/après tunnel</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Veuillez aussi noter qu’après le tunnel, la visite n’est par terminée. Suivez les petits poissons sur le sol pour découvrir l’autre partie du monde marin. . Au final vous retrouverez notre vue subocéanique</source>
             <comment>Text</comment>
-            <translation type="unfinished">Veuillez aussi noter qu’après le tunnel, la visite n’est par terminée. Suivez les petits poissons sur le sol pour découvrir l’autre partie du monde marin. . Au final vous retrouverez notre vue subocéanique</translation>
+            <translation type="obsolete">Veuillez aussi noter qu’après le tunnel, la visite n’est par terminée. Suivez les petits poissons sur le sol pour découvrir l’autre partie du monde marin. . Au final vous retrouverez notre vue subocéanique</translation>
         </message>
     </context>
     <context>
