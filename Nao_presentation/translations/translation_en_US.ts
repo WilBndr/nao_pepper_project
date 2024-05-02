@@ -196,4 +196,13 @@
             <translation type="obsolete">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
         </message>
     </context>
+    <context>
+        <name>behavior_1/behavior.xar:/Animated Say (1)</name>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>et très important la roue des actions.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">et très important la roue des actions.</translation>
+        </message>
+    </context>
 </TS>
