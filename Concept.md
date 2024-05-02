@@ -135,7 +135,9 @@ L'objectif final sera de mesurer l'impact de l'intervention du robot sur l'atten
     Merci et j'espère que vous en apprendrez davantage et que vous vous sentirez inspiré pour nous aider à protéger l'habitat sans lequel nous ne pouvons pas vivre : l'océan. (NAO again is in "supermen position")
     Je vous souhaite une très bonne visite. (NAO says goodbye with is hand) 
 
+## Controle a distance du robot 
 
+Après avoir analysé l'enssemble des moyens disponible pour controller le robot (application mobile, télécommande ou panel de controle) le choix le plus pertinent quand a sa vitesse de déploiement et de réalisation semblait être l'application web. C'est dans cette idée que je commence à développer une application web pour controller le robot a distance.
 
 ## Utilisation de Pepper
 
