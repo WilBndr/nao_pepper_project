@@ -76,3 +76,5 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Mise en place du multilanguages pour le robot** - 29/04
 - **Test application web pour controle distant du robot** - 30/04
 - **Finalisation du script fournis par Odysseo** - 30/04
+- **Test du script fournis par Odysseo** - 02/05
+- **Test de l'application web nao** - 02/05
