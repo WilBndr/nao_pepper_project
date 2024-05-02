@@ -12,11 +12,15 @@ app = Flask(__name__)
 nao_ip = "11.0.0.101"  # À remplacer par l'adresse IP réelle de votre robot NAO
 nao_port = 9559
 
-tts = ALProxy("ALTextToSpeech", "11.0.0.101", nao_port)
+# Adresse IP du robot NAO et port
+# nao_ip = "127.0.0.1"  # À remplacer par l'adresse IP réelle de votre robot NAO
+# nao_port = 9559
+
+tts = ALProxy("ALTextToSpeech", nao_ip, nao_port)
 
 # Connexion au robot NAO
 try:
-    motion_proxy = ALProxy("ALMotion", "11.0.0.101", nao_port)
+    motion_proxy = ALProxy("ALMotion", nao_ip, nao_port)
 except Exception as e:
     print("Erreur lors de la connexion au robot NAO:", e)
 
