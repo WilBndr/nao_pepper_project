@@ -16,12 +16,37 @@
         </message>
     </context>
     <context>
+        <name>behavior_1/behavior.xar:/Animated Say (1)</name>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>et très important la roue des actions.</source>
+            <comment>Text</comment>
+            <translation type="unfinished">et très important la roue des actions.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/Football/behavior_layer2/keyframe1/Say</name>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+        </message>
+    </context>
+    <context>
         <name>behavior_1/behavior.xar:/OdysseoInfo/behavior_layer1/phrase/Animated Say</name>
         <message>
             <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</source>
             <comment>Text</comment>
             <translation type="unfinished">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/Run/behavior_layer1/keyframe1/Say</name>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
         </message>
     </context>
     <context>
@@ -35,6 +60,11 @@
             <source>Bienvenue</source>
             <comment>Text</comment>
             <translation type="obsolete">Bienvenue</translation>
+        </message>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
         </message>
     </context>
     <context>
@@ -75,11 +105,32 @@
         </message>
     </context>
     <context>
+        <name>behavior_1/behavior.xar:/Tai Chi Chuan/behavior_layer2/Rule/Say</name>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/Tai Chi Chuan/behavior_layer2/keyframe1/Say</name>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+        </message>
+    </context>
+    <context>
         <name>behavior_1/behavior.xar:/Timeline/behavior_layer1/keyframe1/Say</name>
         <message>
             <source>Hello</source>
             <comment>Text</comment>
             <translation type="vanished">Hello</translation>
+        </message>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
         </message>
     </context>
     <context>
@@ -91,12 +142,25 @@
         </message>
     </context>
     <context>
-        <name>behavior_1/behavior.xar:/drop/behavior_layer1/texte/Say</name>
+        <name>behavior_1/behavior.xar:/drop (1)/behavior_layer1/texte/Say</name>
         <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
             <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
             <comment>Text</comment>
-            <translation type="unfinished">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+        </message>
+    </context>
+    <context>
+        <name>behavior_1/behavior.xar:/drop/behavior_layer1/texte/Say</name>
+        <message>
+            <source>Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</source>
+            <comment>Text</comment>
+            <translation type="obsolete">Ne pas courir et ne pas faire de gestes brusques dans l’aquarium. Lorsque vous parlez, exprimez-vous à voix basse.</translation>
+        </message>
+        <message>
+            <location filename="behavior_1/behavior.xar" line="0"/>
+            <source>Ne pas toucher l’eau et ne rien jeter dans les bassins</source>
+            <comment>Text</comment>
+            <translation type="unfinished">Ne pas toucher l’eau et ne rien jeter dans les bassins</translation>
         </message>
     </context>
     <context>
@@ -194,15 +258,6 @@
             <source>Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</source>
             <comment>Text</comment>
             <translation type="obsolete">Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d’Odysseo est de 2 millions litres d’eau.</translation>
-        </message>
-    </context>
-    <context>
-        <name>behavior_1/behavior.xar:/Animated Say (1)</name>
-        <message>
-            <location filename="behavior_1/behavior.xar" line="0"/>
-            <source>et très important la roue des actions.</source>
-            <comment>Text</comment>
-            <translation type="unfinished">et très important la roue des actions.</translation>
         </message>
     </context>
 </TS>
