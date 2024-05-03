@@ -5,22 +5,17 @@ from naoqi import ALProxy
 
 app = Flask(__name__)
 
-
-
-
 # Adresse IP du robot NAO et port
-nao_ip = "11.0.0.101"  # À remplacer par l'adresse IP réelle de votre robot NAO
+nao_ip = "11.0.0.101"
 nao_port = 9559
 
-# Adresse IP du robot NAO et port
-# nao_ip = "127.0.0.1"  # À remplacer par l'adresse IP réelle de votre robot NAO
-# nao_port = 9559
-
-tts = ALProxy("ALTextToSpeech", nao_ip, nao_port)
-
-# Connexion au robot NAO
+# Connexion aux différents services du robot NAO
 try:
     motion_proxy = ALProxy("ALMotion", nao_ip, nao_port)
+    behavior_manager = ALProxy("ALBehaviorManager", nao_ip, nao_port)
+    tts_proxy = ALProxy("ALTextToSpeech", nao_ip, nao_port)
+    posture_proxy = ALProxy("ALRobotPosture", nao_ip, nao_port)
+    audio_device_proxy = ALProxy("ALAudioDevice", nao_ip, nao_port)
 except Exception as e:
     print("Erreur lors de la connexion au robot NAO:", e)
 
@@ -41,12 +36,35 @@ def move_backward():
     motion_proxy.say("Hello, world!")
     return redirect(url_for('index_page'))
 
-# Ajoutez d'autres routes et fonctions pour d'autres mouvements du robot NAO
-
 @app.route('/say_hello', methods=['POST'])
 def say_hello():
-    # Envoyer la commande au robot NAO pour reculer
-    tts.say("Hello, world!")
+    # Envoyer la commande au robot NAO pour dire "Hello, world!"
+    tts_proxy.say("Hello, world!")
+    return redirect(url_for('index_page'))
+
+@app.route('/start_baby_shark_dance', methods=['POST'])
+def start_baby_shark_dance():
+    # Réduire le volume au minimum
+    audio_device_proxy.setOutputVolume(0)
+    # Démarrer l'application "BabySharkDance"
+    try:
+        behavior_manager.runBehavior("baby_shark_dance-566cf7")
+        print("Application BabySharkDance lancée avec succès.")
+    except Exception as e:
+        print("Erreur lors du lancement de l'application BabySharkDance:", e)
+    return redirect(url_for('index_page'))
+
+@app.route('/stop_action', methods=['POST'])
+def stop_action():
+    # Arrêter toutes les actions en cours sur le robot NAO
+    try:
+        motion_proxy.stopMove()
+        behavior_manager.stopAllBehaviors()
+        tts_proxy.stopAll()
+        posture_proxy.goToPosture("StandInit", 0.5)  # Réglez la vitesse à 50%
+        print("Toutes les actions ont été arrêtées et le robot est en position StandInit.")
+    except Exception as e:
+        print("Erreur lors de l'arrêt des actions:", e)
     return redirect(url_for('index_page'))
 
 if __name__ == '__main__':
