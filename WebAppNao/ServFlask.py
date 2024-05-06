@@ -19,6 +19,14 @@ try:
 except Exception as e:
     print("Erreur lors de la connexion au robot NAO:", e)
 
+
+installed_behaviors = behavior_manager.getInstalledBehaviors()
+
+# Affichage de la liste des comportements installés
+print("Liste des comportements installés sur le robot NAO :")
+for behavior_info in installed_behaviors:
+    print("- {}".format(behavior_info))
+
 @app.route('/')
 def index_page():
     # Renvoyer le modèle HTML avec l'index actuel
@@ -48,7 +56,7 @@ def start_baby_shark_dance():
     audio_device_proxy.setOutputVolume(0)
     # Démarrer l'application "BabySharkDance"
     try:
-        behavior_manager.runBehavior("baby_shark_dance-566cf7")
+        behavior_manager.runBehavior("baby_shark_dance-566cf7/behavior_1")
         print("Application BabySharkDance lancée avec succès.")
     except Exception as e:
         print("Erreur lors du lancement de l'application BabySharkDance:", e)
