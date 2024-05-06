@@ -148,3 +148,8 @@ Lors de notre entretient avec Odysseo, ces derniers nous ont fait part de leur s
 Du fait qu'alderaban ait été racheté par softbank les appli android n'ont plus disposé de maintenance elle sont donc devenu complexe a devellopper ajd (version windows, version android studio etc...)
 
 Nous avons déterminé que le plus simple a dévelloper et a et déployer est donc une application web
+
+**Sécurisation su controle du robot**
+On sait que le robot est controllable (requiert tout de même un ordinateur pour envoyer des requêtes en python) par n'importe qui de connecté au meme réseaux que le robot -> si le wifi est sécurisé cela ne pose pas de problème car le serveur doit est obligatoirement hébergé sur ce wifi donc relativement safe contre les personnes mal intentionné
+
+Je décide quand même de créer un systeme de login pour eviter les problèmes en interne ce qui permettra de renfoncer l'aspect sécurité du controlle a distance.
