@@ -33,7 +33,7 @@ def move_forward():
 @app.route('/move_backward', methods=['POST'])
 def move_backward():
     # Envoyer la commande au robot NAO pour reculer
-    motion_proxy.say("Hello, world!")
+    motion_proxy.moveToward(-0.5, 0, 0)
     return redirect(url_for('index_page'))
 
 @app.route('/say_hello', methods=['POST'])
@@ -65,6 +65,18 @@ def stop_action():
         print("Toutes les actions ont été arrêtées et le robot est en position StandInit.")
     except Exception as e:
         print("Erreur lors de l'arrêt des actions:", e)
+    return redirect(url_for('index_page'))
+
+@app.route('/change_volume', methods=['POST'])
+def change_volume():
+    # Récupérer la valeur du volume à partir de la requête POST
+    volume = int(request.form['volume'])
+    # Modifier le volume du robot NAO
+    try:
+        audio_device_proxy.setOutputVolume(volume)
+        print("Volume modifié avec succès.")
+    except Exception as e:
+        print("Erreur lors de la modification du volume:", e)
     return redirect(url_for('index_page'))
 
 if __name__ == '__main__':

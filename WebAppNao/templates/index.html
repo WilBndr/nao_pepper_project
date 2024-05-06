@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrôle du Robot NAO</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Contrôle du Robot NAO</h1>
@@ -23,5 +24,30 @@
     <form action="/stop_action" method="post">
         <button type="submit">Arrêter Tout</button>
     </form>
+    
+    <h2>Contrôle du volume</h2>
+    <form id="volumeForm" action="/change_volume" method="post">
+        <label for="volume">Volume:</label>
+        <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+        <button type="submit">Appliquer</button>
+    </form>
+
+    <script>
+        // Récupérer le curseur de volume
+        var volumeInput = document.getElementById('volume');
+
+        // Vérifier s'il existe une valeur de volume stockée localement
+        var savedVolume = localStorage.getItem('volume');
+        if (savedVolume !== null) {
+            // Mettre à jour la valeur du curseur de volume
+            volumeInput.value = savedVolume;
+        }
+
+        // Écouter les changements de valeur du curseur de volume
+        volumeInput.addEventListener('input', function() {
+            // Stocker la nouvelle valeur du volume localement
+            localStorage.setItem('volume', volumeInput.value);
+        });
+    </script>
 </body>
 </html>
