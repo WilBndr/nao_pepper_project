@@ -1,1 +1,1 @@
-  # À remplacer par l'adresse IP réelle de votre robot NAO
+app.secret_key = 'votre_clé_secrète'  # Changez cela par une clé secrète sécurisée

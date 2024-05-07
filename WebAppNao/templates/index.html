@@ -94,7 +94,7 @@
         </form>
         <h1>Contrôle du Robot NAO</h1>
     </div>
-    
+
     <div class="mouvement">
         <h2>Contrôle du mouvement</h2>
         <form action="/move_forward" method="post">
@@ -112,7 +112,13 @@
         </form>
     </div>
     
-    
+    <h1>Robot Control Panel</h1>
+    {% if 'logged_in' in session and session['logged_in'] %}
+    <!-- Bouton de déconnexion -->
+    <form action="/logout" method="post">
+        <button type="submit">Déconnexion</button>
+    </form>
+    {% endif %}
     
     <h2>Contrôle du volume</h2>
     <form id="volumeForm" action="/change_volume" method="post">

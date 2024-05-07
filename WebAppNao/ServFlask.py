@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template, request, redirect, url_for
+from datetime import timedelta
+from flask import Flask, render_template, request, redirect, url_for, session
 import socket
 from naoqi import ALProxy
+import atexit
 
 app = Flask(__name__)
+app.secret_key = 'votre_clé_secrète'  # Clé secrète pour la session
 
 # Adresse IP du robot NAO et port
 nao_ip = "11.0.0.101"
@@ -19,18 +22,44 @@ try:
 except Exception as e:
     print("Erreur lors de la connexion au robot NAO:", e)
 
+@app.before_first_request
+def before_first_request():
+    session['logged_in'] = False
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=5)  # Durée de la session
 
-installed_behaviors = behavior_manager.getInstalledBehaviors()
+"""
+#installed_behaviors = behavior_manager.getInstalledBehaviors()
 
 # Affichage de la liste des comportements installés
+
 print("Liste des comportements installés sur le robot NAO :")
 for behavior_info in installed_behaviors:
     print("- {}".format(behavior_info))
+    """
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Vérification des informations d'identification
+        if request.form['username'] == 'admin' and request.form['password'] == 'password':
+            session['logged_in'] = True
+            return redirect(url_for('index_page'))
+    return render_template('login.html')
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('login'))
+
 
 @app.route('/')
 def index_page():
-    # Renvoyer le modèle HTML avec l'index actuel
-    return render_template('index.html')
+    if 'logged_in' in session and session['logged_in']:
+        return render_template('index.html')
+    else:
+        return redirect(url_for('login'))
+
 
 @app.route('/move_forward', methods=['POST'])
 def move_forward():
