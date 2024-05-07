@@ -82,3 +82,6 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Finalisation du script fournis par Odysseo** - 30/04
 - **Test du script fournis par Odysseo** - 02/05
 - **Test de l'application web nao** - 02/05
+- **Test mouvements scipt NAO** - 03/05
+- **Import de mouvement sur NAO et test sur l'application web** - 06/05
+- **Sécurisation de la connexion ave l'application web** - 07/05
