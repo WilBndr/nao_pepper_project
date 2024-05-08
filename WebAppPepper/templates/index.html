@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrôle du Robot NAO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
+        }
+
+        .control-container {
+            display: flex; /* Utilise Flexbox */
+            position: fixed; /* La div est positionnée de manière fixe */
+            top: 0; /* En haut de la fenêtre */
+            left: 0; /* Alignée à gauche */
+            width: 100%; /* Occupe toute la largeur */
+            background-color: #fff; /* Fond blanc pour la div */
+            padding: 10px; /* Ajoute un peu de marge autour du contenu */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+            z-index: 1000; /* Assure que la div est au-dessus de tout le reste */
+        }
+
+        h1 {
+            color: #333;
+            margin: auto;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .stop_action {
+            background-color: #f44336;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .disconnect {
+            margin: auto;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+        .mouvement {
+            margin-top: 60px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        input[type="range"] {
+            width: 80%;
+            margin-top: 10px;
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #ddd;
+            height: 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: #4CAF50;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="control-container">
+        <form action="/stop_action" method="post">
+            <button class="stop_action" type="submit">Stop</button>
+        </form>
+        <h1>Contrôle du Robot NAO</h1>
+        <form action="/logout" method="post">
+            <button class="disconnect" type="submit">Déconnexion</button>
+        </form>
+    </div>
+
+    <div class="mouvement">
+        <h2>Contrôle du mouvement</h2>
+        <form action="/move_forward" method="post">
+            <button type="submit">Avancer</button>
+        </form>
+        <form action="/move_backward" method="post">
+            <button type="submit">Reculer</button>
+        </form>
+        <!-- Ajoutez d'autres boutons pour d'autres mouvements du robot NAO -->
+        <form action="/say_hello" method="post">
+            <button type="submit">Parler</button>
+        </form>
+        <form action="/start_baby_shark_dance" method="post">
+            <button type="submit">Baby Shark Dance</button>
+        </form>
+    </div>
+
+    <h2>Contrôle du volume</h2>
+    <form id="volumeForm" action="/change_volume" method="post">
+        <label for="volume">Volume :</label>
+        <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+        <button type="submit">Appliquer</button>
+    </form>
+
+    <script>
+        // Récupérer le curseur de volume
+        var volumeInput = document.getElementById('volume');
+
+        // Vérifier s'il existe une valeur de volume stockée localement
+        var savedVolume = localStorage.getItem('volume');
+        if (savedVolume !== null) {
+            // Mettre à jour la valeur du curseur de volume
+            volumeInput.value = savedVolume;
+        }
+
+        // Écouter les changements de valeur du curseur de volume
+        volumeInput.addEventListener('input', function() {
+            // Stocker la nouvelle valeur du volume localement
+            localStorage.setItem('volume', volumeInput.value);
+        });
+    </script>
+</body>
+</html>
