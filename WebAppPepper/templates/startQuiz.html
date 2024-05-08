@@ -50,13 +50,18 @@
             border-radius: 4px;
         }
 
-        
     </style>
 </head>
 <body>
     <h2>Pepper Quiz</h2>
     <form action="/startQuiz" method="post">
-        <button type="submit">Commencer</button>
+        <button id="startQuizBtn" type="submit">Commencer</button>
     </form>
+
+    <script>
+        function disableButton() {
+            document.getElementById("startQuizBtn").disabled = true;
+        }
+    </script>
 </body>
 </html>

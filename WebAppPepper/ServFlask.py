@@ -2,6 +2,7 @@
 from naoqi import ALProxy
 from flask import Flask, render_template, redirect, url_for, request
 import socket
+from time import sleep
 
 app = Flask(__name__)
 
@@ -28,7 +29,10 @@ tts_proxy.setLanguage("French")
 def start_quiz():
     if request.method == 'POST':
         animated_speech_proxy.say("\\rspd=100\\Bonjour! Merci de participer au quiz.")
-        return render_template('index.html')
+        # Mettre en pause l'exécution pendant 3 secondes
+        sleep(1)
+        # Rediriger vers la page question.html
+        return redirect(url_for('question_page'))
     else:
         return render_template('startQuiz.html')
 
@@ -36,6 +40,10 @@ def start_quiz():
 def index_page():
     # Rediriger vers la page startQuiz
     return redirect(url_for('start_quiz'))
+
+@app.route('/question')
+def question_page():
+    return render_template('question.html')
 
 # Fonction pour charger la page web dans une WebView sur la tablette de Pepper
 def load_webview():

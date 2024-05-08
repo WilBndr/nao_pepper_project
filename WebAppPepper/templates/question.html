@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
+        }
+
+        .question-container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .answer-btn-write {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .answer-btn-write:hover {
+            background-color: #45a049;
+        }
+
+        .answer-btn-false {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+.answer-btn-false:hover {
+    background-color: #d32f2f; /* Une teinte légèrement plus sombre */
+}
+
+        /* Ajout de style pour aligner les boutons côte à côte */
+        .answer-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .answer-btn-container form {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h2>Première question :</h2>
+        <p>Mon nom est il Paprika ?</p>
+        <div class="answer-btn-container">
+            <form action="/trueAnswer" method="post">
+                <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
+            </form>
+            <form action="/wrongAnswer" method="post">
+                <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
