@@ -48,12 +48,17 @@ import json
 def submit_content():
     if request.method == 'POST':
         content_data = request.json
+        for content_item in content_data:
+            if content_item['type'] == 'presentationName':
+                presentation_name = content_item['value']
+                break
+                
         # Traitement des données reçues
         with open('content_data.json', 'w') as file:
             data_to_save = {"presentations": []}
             presentation_index = 1
             content_index = 1
-            current_presentation = {"name": "Présentation {}".format(presentation_index), "content": []}
+            current_presentation = {"name": presentation_name, "content": []}
             for content_item in content_data:
                 if content_item['type'] == 'question':
                     # Si le type est une question, enregistrez également les réponses vraies et fausses
@@ -67,7 +72,7 @@ def submit_content():
                         "vrai": vrai,
                         "faux": faux
                     })
-                else:
+                elif content_item['type'] == 'paragraph':
                     current_presentation["content"].append({
                         "type": "paragraphe",
                         "index": content_index,

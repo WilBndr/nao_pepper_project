@@ -5,17 +5,10 @@
                 {
                     "index": 1, 
                     "type": "paragraphe", 
-                    "value": "test"
-                }, 
-                {
-                    "faux": "test", 
-                    "index": 2, 
-                    "type": "question", 
-                    "vrai": "test", 
-                    "question": "test"
+                    "value": "ABC"
                 }
             ], 
-            "name": "Pr\u00e9sentation 1"
+            "name": "TEST"
         }
     ]
 }
