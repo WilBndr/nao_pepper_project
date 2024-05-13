@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer une question</title>
+    <title>Créer une question ou un paragraphe</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
         }
 
-        .question-container {
+        .content-container {
             width: 80%;
             margin: auto;
             background-color: #fff;
@@ -26,7 +26,8 @@
             color: #333;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        textarea {
             width: 80%;
             padding: 10px;
             margin-bottom: 10px;
@@ -35,14 +36,14 @@
             box-sizing: border-box;
         }
 
-        .answer-inputs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px; /* Espacement entre les champs de réponse */
+        .content {
+            position: relative; /* Positionnement relatif pour la corbeille */
+            margin-bottom: 10px; /* Espacement entre les champs de saisie */
         }
 
-        .question {
-            position: relative; /* Positionnement relatif pour la corbeille */
+        textarea {
+            height : 100px; /* Taille fixe pour les paragraphes */
+            resize : none; /* Désactive le redimensionnement */
         }
 
         .delete-btn {
@@ -67,7 +68,8 @@
             background-color: #45a049;
         }
 
-        .add-question-btn {
+        .add-question-btn,
+        .add-paragraph-btn {
             background-color: #2196F3;
             color: white;
             padding: 10px 20px;
@@ -78,56 +80,87 @@
             transition: background-color 0.3s;
         }
 
-        .add-question-btn:hover {
+        .add-question-btn:hover,
+        .add-paragraph-btn:hover {
             background-color: #0b7dda;
         }
     </style>
 </head>
 <body>
-    <div class="question-container">
-        <h2>Créer une question</h2>
-        <form action="/submitQuestion" method="post" id="questionForm">
-            <div id="questionFields">
-                <div class="question">
-                    <input type="text" name="question" placeholder="Entrez votre question ici" required>
-                    <div class="answer-inputs">
-                        <input type="text" name="vrai" placeholder="Réponse vraie" required>
-                        <input type="text" name="faux" placeholder="Réponse fausse" required>
-                    </div>
-                </div>
+    <div class="content-container">
+        <h2>Créer une question ou un paragraphe</h2>
+        <form action="/submitContent" method="post" id="contentForm">
+            <div class="content">
+                <textarea placeholder="Entrez votre paragraphe ici" ></textarea>
+                <span class="delete-btn" style="visibility: hidden;">🗑️</span>
             </div>
             <button type="submit">Valider</button>
             <button class="add-question-btn" type="button" onclick="addQuestion()">+ Ajouter une question</button>
+            <button class="add-paragraph-btn" type="button" onclick="addParagraph()">+ Ajouter un paragraphe</button>
         </form>
     </div>
 
     <script>
         function addQuestion() {
-            var questionFields = document.getElementById('questionFields');
-            var clone = questionFields.firstElementChild.cloneNode(true);
-            var inputs = clone.querySelectorAll('input[type="text"]');
-            inputs.forEach(input => {
-                input.value = ''; // Efface les valeurs des champs de texte clonés
-            });
-            questionFields.appendChild(clone);
-
-            if (questionFields.children.length > 1) { // Ajoute la corbeille uniquement pour les blocs ajoutés après le premier
-                var deleteBtn = document.createElement('span');
-                deleteBtn.className = 'delete-btn';
-                deleteBtn.textContent = '🗑️';
-                deleteBtn.onclick = function() {
-                    deleteQuestion(this);
-                };
-                clone.appendChild(deleteBtn);
-            }
+            var questionField = document.createElement('div');
+            questionField.className = 'content';
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'question';
+            input.placeholder = 'Entrez votre question ici';
+            input.required = true;
+            questionField.appendChild(input);
+            var answerInputs = document.createElement('div');
+            answerInputs.className = 'answer-inputs';
+            var vraiInput = document.createElement('input');
+            vraiInput.type = 'text';
+            vraiInput.name = 'vrai';
+            vraiInput.placeholder = 'Réponse vraie';
+            vraiInput.required = true;
+            answerInputs.appendChild(vraiInput);
+            var fauxInput = document.createElement('input');
+            fauxInput.type = 'text';
+            fauxInput.name = 'faux';
+            fauxInput.placeholder = 'Réponse fausse';
+            fauxInput.required = true;
+            answerInputs.appendChild(fauxInput);
+            questionField.appendChild(answerInputs);
+            var deleteBtn = document.createElement('span');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.textContent = '🗑️';
+            deleteBtn.onclick = function() {
+                deleteContent(this);
+            };
+            questionField.appendChild(deleteBtn);
+            var form = document.getElementById('contentForm');
+            var submitBtn = form.querySelector('button[type="submit"]');
+            form.insertBefore(questionField, submitBtn);
         }
 
-        function deleteQuestion(btn) {
-            var question = btn.parentNode;
-            var questionFields = document.getElementById('questionFields');
-            if (questionFields.children.length > 1) { // Vérifie s'il reste au moins un bloc de question/réponse
-                question.parentNode.removeChild(question);
-            }
+        function addParagraph() {
+            var paragraphField = document.createElement('div');
+            paragraphField.className = 'content';
+            var textarea = document.createElement('textarea');
+            textarea.placeholder = 'Entrez votre paragraphe ici';
+            textarea.required = true;
+            textarea.style.height = '100px'; /* Taille fixe pour les paragraphes */
+            textarea.style.resize = 'none'; /* Désactive le redimensionnement */
+            paragraphField.appendChild(textarea);
+            var deleteBtn = document.createElement('span');
+            deleteBtn.className = 'delete-btn';
+            deleteBtn.textContent = '🗑️';
+            deleteBtn.onclick = function() {
+                deleteContent(this);
+            };
+            paragraphField.appendChild(deleteBtn);
+            var form = document.getElementById('contentForm');
+            var submitBtn = form.querySelector('button[type="submit"]');
+            form.insertBefore(paragraphField, submitBtn);
+        }
+
+        function deleteContent(element) {
+            var parent = element.parentNode;
+            parent.parentNode.removeChild(parent);
         }
     </script>
 </body>
