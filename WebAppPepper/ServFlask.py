@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import webbrowser
 from naoqi import ALProxy
 from flask import Flask, render_template, redirect, url_for, request
 import socket
@@ -23,7 +24,7 @@ except Exception as e:
     print("Erreur lors de la connexion au robot Pepper:", e)
 
 # Changer la langue du robot en français
-tts_proxy.setLanguage("French")
+#tts_proxy.setLanguage("French")
 
 @app.route('/startQuiz', methods=['GET','POST'])
 def start_quiz():
@@ -35,6 +36,10 @@ def start_quiz():
         return redirect(url_for('question_page'))
     else:
         return render_template('startQuiz.html')
+    
+@app.route('/configPage', methods=['GET','POST'])
+def config_page():
+    return render_template('configPage.html')
 
 @app.route('/')
 def index_page():
@@ -61,7 +66,13 @@ if __name__ == '__main__':
     print("Port : %d" % port)
 
     # Charger la page web dans une WebView sur la tablette de Pepper
-    load_webview()
+    #load_webview()
 
+    #ouvrir le navigateur
+    webbrowser.open('http://%s:%d' % (adresse_ip, port))
+    
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)
+
+    #ouvrir le navigateur
+    

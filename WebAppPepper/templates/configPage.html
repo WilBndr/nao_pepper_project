@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
+        }
+
+        .question-container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .answer-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px; /* Espacement entre les champs de réponse */
+        }
+
+        .question {
+            position: relative; /* Positionnement relatif pour la corbeille */
+        }
+
+        .delete-btn {
+            position: absolute; /* Positionnement absolu pour la corbeille */
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .add-question-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .add-question-btn:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-container">
+        <h2>Créer une question</h2>
+        <form action="/submitQuestion" method="post" id="questionForm">
+            <div id="questionFields">
+                <div class="question">
+                    <input type="text" name="question" placeholder="Entrez votre question ici" required>
+                    <div class="answer-inputs">
+                        <input type="text" name="vrai" placeholder="Réponse vraie" required>
+                        <input type="text" name="faux" placeholder="Réponse fausse" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Valider</button>
+            <button class="add-question-btn" type="button" onclick="addQuestion()">+ Ajouter une question</button>
+        </form>
+    </div>
+
+    <script>
+        function addQuestion() {
+            var questionFields = document.getElementById('questionFields');
+            var clone = questionFields.firstElementChild.cloneNode(true);
+            var inputs = clone.querySelectorAll('input[type="text"]');
+            inputs.forEach(input => {
+                input.value = ''; // Efface les valeurs des champs de texte clonés
+            });
+            questionFields.appendChild(clone);
+
+            if (questionFields.children.length > 1) { // Ajoute la corbeille uniquement pour les blocs ajoutés après le premier
+                var deleteBtn = document.createElement('span');
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.textContent = '🗑️';
+                deleteBtn.onclick = function() {
+                    deleteQuestion(this);
+                };
+                clone.appendChild(deleteBtn);
+            }
+        }
+
+        function deleteQuestion(btn) {
+            var question = btn.parentNode;
+            var questionFields = document.getElementById('questionFields');
+            if (questionFields.children.length > 1) { // Vérifie s'il reste au moins un bloc de question/réponse
+                question.parentNode.removeChild(question);
+            }
+        }
+    </script>
+</body>
+</html>
