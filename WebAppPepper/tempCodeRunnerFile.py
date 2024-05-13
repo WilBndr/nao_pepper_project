@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import webbrowser
 from naoqi import ALProxy
 from flask import Flask, render_template, redirect, url_for, request
 import socket
@@ -67,5 +68,11 @@ if __name__ == '__main__':
     # Charger la page web dans une WebView sur la tablette de Pepper
     #load_webview()
 
+    #ouvrir le navigateur
+    webbrowser.open('http://%s:%d' % (adresse_ip, port))
+    
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)
+
+    #ouvrir le navigateur
+    

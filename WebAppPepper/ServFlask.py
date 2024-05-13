@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import webbrowser
 from naoqi import ALProxy
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 import socket
 from time import sleep
 
@@ -41,6 +41,18 @@ def start_quiz():
 def config_page():
     return render_template('configPage.html')
 
+@app.route('/submitContent', methods=['POST'])
+def submit_content():
+    if request.method == 'POST':
+        content_data = request.json
+        # Traitement des données reçues
+        with open('content_data.txt', 'w') as file:
+            for content_item in content_data:
+                file.write('{}: {}\n'.format(content_item['type'], content_item['value']))
+        return jsonify({'message': 'Données enregistrées avec succès'}), 200
+    else:
+        return jsonify({'error': 'Méthode non autorisée'}), 405
+
 @app.route('/')
 def index_page():
     # Rediriger vers la page startQuiz
@@ -61,7 +73,7 @@ if __name__ == '__main__':
     print("Adresse IP : %s" % adresse_ip)
 
     # Définition du port pour le serveur Flask
-    port = 5000  # Par défaut, utilisez un autre port si nécessaire
+    port = 5000
 
     print("Port : %d" % port)
 
@@ -70,7 +82,7 @@ if __name__ == '__main__':
 
     #ouvrir le navigateur
     webbrowser.open('http://%s:%d' % (adresse_ip, port))
-    
+
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)
 
