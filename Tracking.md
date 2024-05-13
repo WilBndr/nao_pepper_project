@@ -91,3 +91,6 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 
  - Suite à la validation des tests de contrôle à distance du robot NAO, j'ai travaillé sur l'ajout de cette application au robot Pepper. Par chance, la compatibilité du SDK Python pour NAO permettait également de programmer Pepper de la même manière. Il est donc devenu possible de contrôler Pepper depuis sa tablette, ce qui a alors ouvert de nombreuses possibilités. J'ai notamment réalisé un petit quiz animé par Pepper où l'utilisateur devait interagir avec sa tablette pour montrer cette fonctionnalité. Après m'être entretenu avec Dr. Shaad pour lui faire part de mes avancées, nous avons convenu qu'il serait désormais nécessaire aux futurs utilisateurs de pouvoir réaliser eux-mêmes leurs propres quiz et que l'utilisation du robot devienne accessible à tous.
 - **Présentation des robots aux METC à Pailles (Mauritius Emerging technologies Council)** - 09/05
+- **Présentation des robots aux METC à Pailles (Mauritius Emerging technologies Council)** - 10/05
+- **Présentation des robots aux METC à Pailles (Mauritius Emerging technologies Council)** - 11/05
+- **Implémentation de la rédaction de présentation pour Pepper via l'application web** - 13/05
