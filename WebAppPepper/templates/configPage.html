@@ -106,13 +106,22 @@
     var contentFields = document.querySelectorAll('.content');
     var formData = [];
 
-    // Parcourir chaque champ de saisie et récupérer les valeurs
     contentFields.forEach(function(field) {
         var fieldType = field.querySelector('textarea') ? 'paragraph' : 'question';
         var inputField = field.querySelector('textarea, input[type="text"]');
-        if(inputField) { // Vérifier si l'élément est trouvé
+        if(inputField) {
             var fieldValue = inputField.value;
-            formData.push({type: fieldType, value: fieldValue});
+            console.log(inputField.name);
+            // Si le champ est une question, récupérer également les réponses vraies et fausses
+            if (inputField.name === 'question') {
+                var vraiValue = field.querySelector('input[name="vrai"]').value;
+                console.log(vraiValue);
+                var fauxValue = field.querySelector('input[name="faux"]').value;
+                console.log(fauxValue);
+                formData.push({type: fieldType, value: fieldValue, vrai: vraiValue, faux: fauxValue});
+            } else {
+                formData.push({type: fieldType, value: fieldValue});
+            }
         }
     });
     
@@ -137,10 +146,6 @@
 }
 
 
-
-
-    
-        
         function addQuestion() {
             var questionField = document.createElement('div');
             questionField.className = 'content';

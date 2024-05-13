@@ -4,6 +4,7 @@ from naoqi import ALProxy
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 import socket
 from time import sleep
+import json
 
 app = Flask(__name__)
 
@@ -41,17 +42,41 @@ def start_quiz():
 def config_page():
     return render_template('configPage.html')
 
+import json
+
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
     if request.method == 'POST':
         content_data = request.json
         # Traitement des données reçues
-        with open('content_data.txt', 'w') as file:
+        with open('content_data.json', 'w') as file:
+            data_to_save = {"presentations": []}
+            presentation_index = 1
+            current_presentation = {"name": "Présentation {}".format(presentation_index), "content": []}
             for content_item in content_data:
-                file.write('{}: {}\n'.format(content_item['type'], content_item['value']))
+                if content_item['type'] == 'question':
+                    # Si le type est une question, enregistrez également les réponses vraies et fausses
+                    question = content_item['value']
+                    vrai = content_item['vrai']
+                    faux = content_item['faux']
+                    current_presentation["content"].append({
+                        "type": "question",
+                        "question": question,
+                        "vrai": vrai,
+                        "faux": faux
+                    })
+                else:
+                    current_presentation["content"].append({
+                        "type": "paragraphe",
+                        "value": content_item['value']
+                    })
+            data_to_save["presentations"].append(current_presentation)
+            json.dump(data_to_save, file, indent=4)
         return jsonify({'message': 'Données enregistrées avec succès'}), 200
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
+
+
 
 @app.route('/')
 def index_page():

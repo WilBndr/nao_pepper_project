@@ -1,0 +1,23 @@
+{
+    "presentations": [
+        {
+            "content": [
+                {
+                    "type": "paragraphe", 
+                    "value": "ded"
+                }, 
+                {
+                    "faux": "dedede", 
+                    "question": "dede", 
+                    "type": "question", 
+                    "vrai": "ede"
+                }, 
+                {
+                    "type": "paragraphe", 
+                    "value": "deded"
+                }
+            ], 
+            "name": "Pr\u00e9sentation 1"
+        }
+    ]
+}
