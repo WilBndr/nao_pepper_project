@@ -5,6 +5,7 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 import socket
 from time import sleep
 import json
+import os
 
 app = Flask(__name__)
 
@@ -42,48 +43,51 @@ def start_quiz():
 def config_page():
     return render_template('configPage.html')
 
-import json
-
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
     if request.method == 'POST':
         content_data = request.json
+        presentation_name = None
         for content_item in content_data:
             if content_item['type'] == 'presentationName':
                 presentation_name = content_item['value']
+                #suppression de l'élément de la liste pour que le nom ne soit pas ajouté au contenu de la présentation
+                content_data.remove(content_item)
                 break
-                
-        # Traitement des données reçues
-        with open('content_data.json', 'w') as file:
-            data_to_save = {"presentations": []}
-            presentation_index = 1
-            content_index = 1
-            current_presentation = {"name": presentation_name, "content": []}
-            for content_item in content_data:
-                if content_item['type'] == 'question':
-                    # Si le type est une question, enregistrez également les réponses vraies et fausses
-                    question = content_item['value']
-                    vrai = content_item['vrai']
-                    faux = content_item['faux']
-                    current_presentation["content"].append({
-                        "type": "question",
-                        "index": content_index,
-                        "question": question,
-                        "vrai": vrai,
-                        "faux": faux
-                    })
-                elif content_item['type'] == 'paragraph':
-                    current_presentation["content"].append({
-                        "type": "paragraphe",
-                        "index": content_index,
-                        "value": content_item['value']
-                    })
-                content_index += 1
-            data_to_save["presentations"].append(current_presentation)
-            json.dump(data_to_save, file, indent=4)
+        
+        if not presentation_name:
+            return jsonify({'error': 'Nom de présentation non spécifié'}), 400
+        
+        # Vérifier si le fichier existe déjà
+        file_path = 'content_data.json'
+        presentations = []
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                presentations = json.load(file).get('presentations', [])
+        
+        # Vérifier si le nom de la présentation existe déjà
+        existing_presentation = None
+        for existing in presentations:
+            if existing['name'] == presentation_name:
+                existing_presentation = existing
+                break
+        
+        # Si la présentation existe, ajouter le contenu à cette présentation
+        if existing_presentation:
+            existing_presentation['content'] += content_data
+        else:
+            # Sinon, créer une nouvelle présentation
+            new_presentation = {"name": presentation_name, "content": content_data}
+            presentations.append(new_presentation)
+        
+        # Enregistrer les données dans le fichier JSON
+        with open(file_path, 'w') as file:
+            json.dump({"presentations": presentations}, file, indent=4)
+        
         return jsonify({'message': 'Données enregistrées avec succès'}), 200
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
+
 
 @app.route('/')
 def index_page():

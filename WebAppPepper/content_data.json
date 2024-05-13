@@ -6,9 +6,30 @@
                     "index": 1, 
                     "type": "paragraphe", 
                     "value": "ABC"
+                }, 
+                {
+                    "type": "paragraph", 
+                    "value": "TEST"
+                }, 
+                {
+                    "faux": "T", 
+                    "type": "question", 
+                    "vrai": "T", 
+                    "value": "T"
                 }
             ], 
             "name": "TEST"
+        }, 
+        {
+            "content": [
+                {
+                    "faux": "TEST", 
+                    "type": "question", 
+                    "vrai": "TEST", 
+                    "value": "TEST"
+                }
+            ], 
+            "name": "ABC"
         }
     ]
 }
