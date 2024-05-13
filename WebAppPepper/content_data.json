@@ -3,18 +3,16 @@
         {
             "content": [
                 {
+                    "index": 1, 
                     "type": "paragraphe", 
-                    "value": "ded"
+                    "value": "test"
                 }, 
                 {
-                    "faux": "dedede", 
-                    "question": "dede", 
+                    "faux": "test", 
+                    "index": 2, 
                     "type": "question", 
-                    "vrai": "ede"
-                }, 
-                {
-                    "type": "paragraphe", 
-                    "value": "deded"
+                    "vrai": "test", 
+                    "question": "test"
                 }
             ], 
             "name": "Pr\u00e9sentation 1"

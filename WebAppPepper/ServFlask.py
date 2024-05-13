@@ -52,6 +52,7 @@ def submit_content():
         with open('content_data.json', 'w') as file:
             data_to_save = {"presentations": []}
             presentation_index = 1
+            content_index = 1
             current_presentation = {"name": "Présentation {}".format(presentation_index), "content": []}
             for content_item in content_data:
                 if content_item['type'] == 'question':
@@ -61,6 +62,7 @@ def submit_content():
                     faux = content_item['faux']
                     current_presentation["content"].append({
                         "type": "question",
+                        "index": content_index,
                         "question": question,
                         "vrai": vrai,
                         "faux": faux
@@ -68,15 +70,15 @@ def submit_content():
                 else:
                     current_presentation["content"].append({
                         "type": "paragraphe",
+                        "index": content_index,
                         "value": content_item['value']
                     })
+                content_index += 1
             data_to_save["presentations"].append(current_presentation)
             json.dump(data_to_save, file, indent=4)
         return jsonify({'message': 'Données enregistrées avec succès'}), 200
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
-
-
 
 @app.route('/')
 def index_page():
@@ -112,4 +114,3 @@ if __name__ == '__main__':
     app.run(host=adresse_ip, port=port)
 
     #ouvrir le navigateur
-    
