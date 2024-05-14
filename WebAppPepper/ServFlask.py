@@ -157,6 +157,14 @@ def get_current_presentation():
     
     return current_presentation
 
+@app.route('/endQuiz')
+def end_quiz():
+    return render_template('endQuiz.html')
+
+@app.route('/returnMenu', methods=['GET','POST'])
+def return_menu():
+    return render_template('startQuiz.html',current_presentation=get_current_presentation())
+
 @app.route('/')
 def index_page():
     # Rediriger vers la page startQuizs

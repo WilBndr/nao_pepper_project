@@ -69,26 +69,69 @@
     </style>
 </head>
 <body>
-    {% for item in current_presentation_item %}
-        {% if item.type == 'paragraph' %}
-            <div class="question-container">
-                <h2>Paragraphe :</h2>
-                <p>{{ item.value }}</p>
-            </div>
-        {% elif item.type == 'question' %}
-            <div class="question-container">
-                <h2>Question :</h2>
-                <p>{{ item.value }}</p>
-                <div class="answer-btn-container">
-                    <form action="/trueAnswer" method="post">
-                        <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
-                    </form>
-                    <form action="/wrongAnswer" method="post">
-                        <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
-                    </form>
+    {% if current_presentation_item %}
+        <div id="presentationContent">
+            {% for item in current_presentation_item %}
+                <div class="question-container {% if loop.first %} active {% endif %}">
+                    {% if item.type == 'paragraph' %}
+                        <h2>Paragraphe :</h2>
+                        <p>{{ item.value }}</p>
+                    {% elif item.type == 'question' %}
+                        <h2>Question :</h2>
+                        <p>{{ item.value }}</p>
+                        <div class="answer-btn-container">
+                            <form action="/trueAnswer" method="post">
+                                <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
+                            </form>
+                            <form action="/wrongAnswer" method="post">
+                                <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
-            </div>
-        {% endif %}
-    {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="answer-btn-container">
+            <button class="answer-btn-write" id="nextButton">Suivant >></button>
+        </div>
+    {% else %}
+        <p>Aucune présentation en cours.</p>
+    {% endif %}
+
+    <script>
+        // Récupérer les éléments de contenu de présentation
+        const presentationContent = document.querySelectorAll('.question-container');
+
+        // Récupérer le bouton suivant
+        const nextButton = document.getElementById('nextButton');
+
+        // Initialiser l'index du contenu de la présentation actuellement affiché
+        let currentIndex = 0;
+
+        // Cacher tous les éléments de contenu sauf le premier
+        presentationContent.forEach((element, index) => {
+            if (index !== 0) {
+                element.style.display = 'none';
+            }
+        });
+
+        // Ajouter un écouteur d'événements au bouton suivant
+        nextButton.addEventListener('click', () => {
+            // Masquer l'élément de contenu actuel
+            presentationContent[currentIndex].style.display = 'none';
+
+            // Passer à l'élément de contenu suivant
+            currentIndex = (currentIndex + 1) % presentationContent.length;
+
+            // Vérifier si l'élément actuel est le dernier
+            if (currentIndex === 0) {
+                // Rediriger vers la page endQuiz.html
+                window.location.href = '/endQuiz';
+            } else {
+                // Afficher l'élément de contenu suivant
+                presentationContent[currentIndex].style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
