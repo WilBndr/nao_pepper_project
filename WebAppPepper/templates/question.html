@@ -92,7 +92,9 @@
             {% endfor %}
         </div>
         <div class="answer-btn-container">
-            <button class="answer-btn-write" id="nextButton">Suivant >></button>
+            <form action="/nextButton" method="post">
+                <button class="answer-btn-write" id="nextButton" type="submit">Suivant >></button>
+            </form>
         </div>
     {% else %}
         <p>Aucune présentation en cours.</p>
@@ -132,6 +134,7 @@
                 presentationContent[currentIndex].style.display = 'block';
             }
         });
+
     </script>
 </body>
 </html>

@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 import webbrowser
 from naoqi import ALProxy
-from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask import Flask, render_template, redirect, url_for, request, jsonify, Response
 import socket
 from time import sleep
 import json
 import os
 
 app = Flask(__name__)
+item_index = 0
+items_length = 0
 
 # Adresse IP du robot Pepper et port
 pepper_ip = "11.0.0.108"
@@ -87,22 +89,61 @@ def select_presentation():
 
 @app.route('/startPresentation', methods=['POST'])
 def start_presentation():
+
+    robot_current_speach()
+
+    return render_template('question.html', current_presentation_item=get_current_presentation_item())
+
+def robot_current_speach():
+    current_presentation_item = get_current_presentation_item()
+    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    print(current_presentation_item[get_index()].get('value'))
+    print(get_index())
+    print(get_length())
+    increment_index()
+
+@app.route('/nextButton', methods=['GET','POST'])
+def next_button():
+    if get_index() < get_length():
+        robot_current_speach()
+        return Response(status=204)
+    else:
+        #on reset l'index de manière a poivoir relancer la présentation
+        reset_index()
+        return render_template('endQuiz.html')
+    
+def increment_index():
+    global item_index
+    item_index += 1
+
+def get_index():
+    return item_index
+
+def get_length():
+    global items_length
+    items_length = len(get_current_presentation_item())
+    return items_length
+
+def reset_index():
+    global item_index
+    item_index = 0
+
+def get_current_presentation_item():
+
     with open('content_data.json', 'r') as file:
         data = json.load(file)
         presentations = data.get('presentations', [])
         current_presentation_name = data.get('current_presentation', '')
-        print(current_presentation_name)
+    
+    current_presentation_item = []
 
-        current_presentation_item = []
+    for presentation in presentations:
+        if presentation['name'] == current_presentation_name:
+            for content_item in presentation['content']:
+                current_presentation_item.append(content_item)
+            break
 
-        for presentation in presentations:
-            if presentation['name'] == current_presentation_name:
-                for content_item in presentation['content']:
-                    current_presentation_item.append(content_item)
-                print(current_presentation_item)
-                break
-
-    return render_template('question.html', current_presentation_item=current_presentation_item)
+    return current_presentation_item
 
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
@@ -156,6 +197,8 @@ def get_current_presentation():
         current_presentation = data.get('current_presentation', '')
     
     return current_presentation
+
+
 
 @app.route('/endQuiz')
 def end_quiz():
