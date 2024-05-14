@@ -69,36 +69,26 @@
     </style>
 </head>
 <body>
-    <div class="question-container">
-        <h2>Question : </h2>
-        <p>Mon nom est il Paprika ?</p>
-        <div class="answer-btn-container">
-            <form action="/trueAnswer" method="post">
-                <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
-            </form>
-            <form action="/wrongAnswer" method="post">
-                <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
-            </form>
-        </div>
-    </div>
-    <div class="question-container">
-        <h2>Paragraphe :</h2>
-    </div>
-    <div class="answer-btn-container">
-        <form action="/nextButton" method="post">
-            <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Suivant >>></button>
-        </form>
-    </div>
-    <script>
-        console.log("Question page loaded");
-
-        function current_text() {
-            for (content in current_presentation.content) {
-            console.log(content);
-            }
-        }
-
-    </script>
-
+    {% for item in current_presentation_item %}
+        {% if item.type == 'paragraph' %}
+            <div class="question-container">
+                <h2>Paragraphe :</h2>
+                <p>{{ item.value }}</p>
+            </div>
+        {% elif item.type == 'question' %}
+            <div class="question-container">
+                <h2>Question :</h2>
+                <p>{{ item.value }}</p>
+                <div class="answer-btn-container">
+                    <form action="/trueAnswer" method="post">
+                        <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
+                    </form>
+                    <form action="/wrongAnswer" method="post">
+                        <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 </body>
 </html>
