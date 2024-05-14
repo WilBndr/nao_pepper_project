@@ -87,7 +87,22 @@ def select_presentation():
 
 @app.route('/startPresentation', methods=['POST'])
 def start_presentation():
-    return render_template('question.html')
+    with open('content_data.json', 'r') as file:
+        data = json.load(file)
+        presentations = data.get('presentations', [])
+        current_presentation_name = data.get('current_presentation', '')
+        print(current_presentation_name)
+
+        current_presentation_item = []
+
+        for presentation in presentations:
+            if presentation['name'] == current_presentation_name:
+                for content_item in presentation['content']:
+                    current_presentation_item.append(content_item)
+                print(current_presentation_item)
+                break
+
+    return render_template('question.html', current_presentation_item=current_presentation_item)
 
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
