@@ -54,28 +54,33 @@
 </head>
 <body>
     <h2>Choisissez une présentation</h2>
-    <form action="/startPresentation" method="post" id="presentationForm">
+    <form action="/selectPresentation" method="post" id="presentationForm">
         <select name="presentationName" id="presentationName" class="field">
+            <!-- Option par défaut -->
+            <option value="" selected disabled>Sélectionnez une présentation</option>
             <!-- Options du menu déroulant générées dynamiquement à partir des noms de présentation disponibles -->
             {% for presentation in presentations %}
                 <option value="{{ presentation.name }}">{{ presentation.name }}</option>
             {% endfor %}
         </select>
+        
         <!-- Champ caché pour stocker la valeur sélectionnée -->
         <input type="hidden" id="selectedPresentation" name="selectedPresentation">
-        <button type="submit">Démarrer la présentation</button>
+        <button id="startQuizBtn" type="submit" disabled>Démarrer la présentation</button>
     </form>
 
     <script>
         // Récupérer le menu déroulant et le champ caché
         var select = document.getElementById('presentationName');
         var hiddenInput = document.getElementById('selectedPresentation');
+        var startQuizBtn = document.getElementById('startQuizBtn');
 
         // Ajouter un écouteur d'événements pour détecter les changements de sélection
         select.addEventListener('change', function() {
             // Mettre à jour la valeur du champ caché avec la valeur sélectionnée
             hiddenInput.value = select.value;
-            console.log(hiddenInput.value);
+            // Activer le bouton si une sélection valide est effectuée, sinon le désactiver
+            startQuizBtn.disabled = select.value === "";
         });
     </script>
 </body>

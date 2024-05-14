@@ -53,19 +53,41 @@ def choose_presentation():
     # Rendre le modèle HTML en incluant les données des présentations
     return render_template('presentationPage.html', presentations=presentations)
 
-@app.route('/startPresentation', methods=['POST'])
-def start_presentation():
+@app.route('/selectPresentation', methods=['POST'])
+def select_presentation():
     if request.method == 'POST':
         # Récupérer le nom de la présentation sélectionnée à partir des données du formulaire
         selected_presentation = request.form.get('selectedPresentation')
         
-        # Effectuer les actions nécessaires pour démarrer la présentation avec le nom sélectionné
-        # Vous pouvez ajouter ici le code pour charger les données de la présentation correspondante et les afficher
+        # Vérifier si le fichier existe déjà
+        file_path = 'content_data.json'
+        if os.path.exists(file_path):
+            # Charger les données du fichier JSON
+            with open(file_path, 'r') as file:
+                data_to_save = json.load(file)
+                
+                # Vérifier si le champ current_presentation existe déjà
+                if 'current_presentation' in data_to_save:
+                    # Mettre à jour le champ current_presentation avec la nouvelle valeur
+                    data_to_save['current_presentation'] = selected_presentation
+                else:
+                    # Créer le champ current_presentation avec la nouvelle valeur
+                    data_to_save['current_presentation'] = selected_presentation
+                
+                # Enregistrer les données mises à jour dans le fichier JSON
+                with open(file_path, 'w') as file:
+                    json.dump(data_to_save, file, indent=4)
 
-        return render_template('startQuiz.html', selected_presentation=selected_presentation)
+                return index_page()
+        else:
+            return jsonify({'error': 'Fichier de données introuvable'}), 404
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
 
+
+@app.route('/startPresentation', methods=['POST'])
+def start_presentation():
+    return render_template('question.html')
 
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
@@ -112,11 +134,18 @@ def submit_content():
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
 
+def get_current_presentation():
+    # Charger les données depuis le fichier JSON
+    with open('content_data.json', 'r') as file:
+        data = json.load(file)
+        current_presentation = data.get('current_presentation', '')
+    
+    return current_presentation
 
 @app.route('/')
 def index_page():
-    # Rediriger vers la page startQuiz
-    return redirect(url_for('start_quiz'))
+    # Rediriger vers la page startQuizs
+    return render_template('startQuiz.html',current_presentation=get_current_presentation())
 
 @app.route('/question')
 def question_page():

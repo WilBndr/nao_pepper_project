@@ -1,4 +1,5 @@
 {
+    "current_presentation": "TEST2", 
     "presentations": [
         {
             "content": [
@@ -30,6 +31,21 @@
                 }
             ], 
             "name": "ABC"
+        }, 
+        {
+            "content": [
+                {
+                    "type": "paragraph", 
+                    "value": "Voici un test"
+                }, 
+                {
+                    "faux": "Une r\u00e9ponse fausse", 
+                    "type": "question", 
+                    "vrai": "Une r\u00e9ponse vrai", 
+                    "value": "Une question"
+                }
+            ], 
+            "name": "TEST2"
         }
     ]
 }

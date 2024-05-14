@@ -53,14 +53,14 @@
     </style>
 </head>
 <body>
-    <h2>Présentations :  {{ selected_presentation }}</h2>
+    <h2>Présentations : {{ current_presentation }}</h2>
     <form action="/configPage" method="post">
         <button type="submit">Configuration</button>
     </form>
     <form action="/choosePage" method="post">
         <button type="submit">Présentations</button>
     </form>
-    <form action="/startQuiz" method="post">
+    <form action="/startPresentation" method="post">
         <button id="startQuizBtn" type="submit">Commencer</button>
     </form>
 

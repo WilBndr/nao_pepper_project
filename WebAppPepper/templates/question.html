@@ -70,7 +70,7 @@
 </head>
 <body>
     <div class="question-container">
-        <h2>Première question :</h2>
+        <h2>Question :</h2>
         <p>Mon nom est il Paprika ?</p>
         <div class="answer-btn-container">
             <form action="/trueAnswer" method="post">
@@ -78,6 +78,14 @@
             </form>
             <form action="/wrongAnswer" method="post">
                 <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
+            </form>
+        </div>
+    </div>
+    <div class="question-container">
+        <h2>Paragraphe :</h2>
+        <div class="answer-btn-container">
+            <form action="/nextButton" method="post">
+                <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Suivant >>></button>
             </form>
         </div>
     </div>
