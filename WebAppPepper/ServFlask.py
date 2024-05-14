@@ -43,6 +43,30 @@ def start_quiz():
 def config_page():
     return render_template('configPage.html')
 
+@app.route('/choosePage', methods=['GET','POST'])
+def choose_presentation():
+    # Charger les données depuis le fichier JSON
+    with open('content_data.json', 'r') as file:
+        data = json.load(file)
+        presentations = data.get('presentations', [])
+
+    # Rendre le modèle HTML en incluant les données des présentations
+    return render_template('presentationPage.html', presentations=presentations)
+
+@app.route('/startPresentation', methods=['POST'])
+def start_presentation():
+    if request.method == 'POST':
+        # Récupérer le nom de la présentation sélectionnée à partir des données du formulaire
+        selected_presentation = request.form.get('selectedPresentation')
+        
+        # Effectuer les actions nécessaires pour démarrer la présentation avec le nom sélectionné
+        # Vous pouvez ajouter ici le code pour charger les données de la présentation correspondante et les afficher
+
+        return render_template('startQuiz.html', selected_presentation=selected_presentation)
+    else:
+        return jsonify({'error': 'Méthode non autorisée'}), 405
+
+
 @app.route('/submitContent', methods=['POST'])
 def submit_content():
     if request.method == 'POST':

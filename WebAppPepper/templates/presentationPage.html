@@ -53,21 +53,30 @@
     </style>
 </head>
 <body>
-    <h2>Présentations :  {{ selected_presentation }}</h2>
-    <form action="/configPage" method="post">
-        <button type="submit">Configuration</button>
-    </form>
-    <form action="/choosePage" method="post">
-        <button type="submit">Présentations</button>
-    </form>
-    <form action="/startQuiz" method="post">
-        <button id="startQuizBtn" type="submit">Commencer</button>
+    <h2>Choisissez une présentation</h2>
+    <form action="/startPresentation" method="post" id="presentationForm">
+        <select name="presentationName" id="presentationName" class="field">
+            <!-- Options du menu déroulant générées dynamiquement à partir des noms de présentation disponibles -->
+            {% for presentation in presentations %}
+                <option value="{{ presentation.name }}">{{ presentation.name }}</option>
+            {% endfor %}
+        </select>
+        <!-- Champ caché pour stocker la valeur sélectionnée -->
+        <input type="hidden" id="selectedPresentation" name="selectedPresentation">
+        <button type="submit">Démarrer la présentation</button>
     </form>
 
     <script>
-        function disableButton() {
-            document.getElementById("startQuizBtn").disabled = true;
-        }
+        // Récupérer le menu déroulant et le champ caché
+        var select = document.getElementById('presentationName');
+        var hiddenInput = document.getElementById('selectedPresentation');
+
+        // Ajouter un écouteur d'événements pour détecter les changements de sélection
+        select.addEventListener('change', function() {
+            // Mettre à jour la valeur du champ caché avec la valeur sélectionnée
+            hiddenInput.value = select.value;
+            console.log(hiddenInput.value);
+        });
     </script>
 </body>
 </html>
