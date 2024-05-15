@@ -72,19 +72,19 @@
     {% if current_presentation_item %}
         <div id="presentationContent">
             {% for item in current_presentation_item %}
-                <div class="question-container {% if loop.first %} active {% endif %}">
+                <div class="question-container">
                     {% if item.type == 'paragraph' %}
-                        <h2>Paragraphe :</h2>
+                        <h2 class="paragraph">Paragraphe :</h2>
                         <p>{{ item.value }}</p>
                     {% elif item.type == 'question' %}
-                        <h2>Question :</h2>
+                        <h2 class="question">Question :</h2>
                         <p>{{ item.value }}</p>
                         <div class="answer-btn-container">
                             <form action="/trueAnswer" method="post">
-                                <button class="answer-btn-write" type="submit" onclick="answerQuestion(true)">Vrai</button>
+                                <button class="answer-btn-write" type="submit">Vrai</button>
                             </form>
                             <form action="/wrongAnswer" method="post">
-                                <button class="answer-btn-false" type="submit" onclick="answerQuestion(false)">Faux</button>
+                                <button class="answer-btn-false" type="submit">Faux</button>
                             </form>
                         </div>
                     {% endif %}
@@ -101,8 +101,10 @@
     {% endif %}
 
     <script>
-        // Récupérer les éléments de contenu de présentation
+                // Récupérer les éléments de contenu de présentation
         const presentationContent = document.querySelectorAll('.question-container');
+        // Récupérer les éléments <h2> de la présentation
+        const h2Elements = document.querySelectorAll('.question-container h2');
 
         // Récupérer le bouton suivant
         const nextButton = document.getElementById('nextButton');
@@ -116,6 +118,29 @@
                 element.style.display = 'none';
             }
         });
+
+        // Fonction pour afficher ou cacher le bouton suivant en fonction du type de contenu
+        function toggleNextButton() {
+            if (h2Elements[currentIndex].classList.contains('question')) {
+                console.log('1');
+                nextButton.style.display = 'none'; // Cacher le bouton si c'est une question
+            } else {
+                console.log('2');
+                nextButton.style.display = 'block'; // Afficher le bouton sinon
+            }
+        }
+
+        // Ajouter un écouteur d'événements aux boutons de réponse
+        const answerButtons = document.querySelectorAll('.answer-btn-write, .answer-btn-false');
+        answerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Afficher le bouton suivant
+                nextButton.style.display = 'block';
+            });
+        });
+
+        // Appeler la fonction pour définir l'état initial du bouton suivant
+        toggleNextButton();
 
         // Ajouter un écouteur d'événements au bouton suivant
         nextButton.addEventListener('click', () => {
@@ -132,8 +157,12 @@
             } else {
                 // Afficher l'élément de contenu suivant
                 presentationContent[currentIndex].style.display = 'block';
+
+                // Mettre à jour la visibilité du bouton suivant en fonction du type de contenu
+                toggleNextButton();
             }
         });
+
 
     </script>
 </body>

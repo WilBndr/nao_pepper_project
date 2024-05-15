@@ -1,21 +1,11 @@
 {
-    "current_presentation": "Willem", 
+    "current_presentation": "dde", 
     "presentations": [
         {
             "content": [
                 {
-                    "type": "paragraphe", 
-                    "value": "ABC"
-                }, 
-                {
-                    "type": "paragraph", 
-                    "value": "TEST"
-                }, 
-                {
-                    "faux": "T", 
-                    "type": "question", 
-                    "vrai": "T", 
-                    "value": "T"
+                    "text": "This is a test presentation.", 
+                    "type": "text"
                 }
             ], 
             "name": "TEST"
@@ -23,47 +13,75 @@
         {
             "content": [
                 {
-                    "faux": "TEST", 
+                    "type": "paragraph", 
+                    "value": "c"
+                }, 
+                {
+                    "faux": "cc", 
                     "type": "question", 
-                    "vrai": "TEST", 
-                    "value": "TEST"
+                    "value": "c", 
+                    "vrai": "c"
+                }, 
+                {
+                    "type": "paragraph", 
+                    "value": "c"
+                }, 
+                {
+                    "faux": "c", 
+                    "type": "question", 
+                    "value": "c", 
+                    "vrai": "c"
+                }, 
+                {
+                    "faux": "c", 
+                    "type": "question", 
+                    "value": "c", 
+                    "vrai": "c"
                 }
             ], 
-            "name": "ABC"
+            "name": "DEDED"
         }, 
         {
             "content": [
                 {
                     "type": "paragraph", 
-                    "value": "Voici un test"
+                    "value": "de"
                 }, 
                 {
-                    "faux": "Une r\u00e9ponse fausse", 
+                    "faux": "de", 
                     "type": "question", 
-                    "vrai": "Une r\u00e9ponse vrai", 
-                    "value": "Une question"
+                    "value": "de", 
+                    "vrai": "de"
+                }, 
+                {
+                    "faux": "de", 
+                    "type": "question", 
+                    "value": "de", 
+                    "vrai": "de"
+                }, 
+                {
+                    "type": "paragraph", 
+                    "value": "de"
+                }, 
+                {
+                    "faux": "de", 
+                    "type": "question", 
+                    "value": "de", 
+                    "vrai": "de"
                 }
             ], 
-            "name": "TEST2"
+            "name": "WAY"
         }, 
         {
             "content": [
                 {
-                    "type": "paragraph", 
-                    "value": "Paragraphe"
-                }, 
-                {
-                    "faux": "Paragraphe", 
+                    "faux": "de", 
                     "type": "question", 
-                    "value": "Paragraphe", 
-                    "vrai": "Paragraphe"
-                }, 
-                {
-                    "type": "paragraph", 
-                    "value": "Paragraphe"
+                    "value": "de", 
+                    "vrai": "de"
                 }
             ], 
-            "name": "Willem"
+            "name": "dde"
         }
     ]
 }

@@ -125,6 +125,7 @@ def true_button():
 def false_button():
     current_presentation_item = get_current_presentation_item()
     #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    print(current_presentation_item[get_index()-1].get('faux'))
     return Response(status=204)
     
 def increment_index():
