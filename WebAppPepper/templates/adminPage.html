@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>startQuiz</title>
+    <title>admin page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,14 +53,15 @@
     </style>
 </head>
 <body>
-    <h2>Présentations : {{ current_presentation }}</h2>
-    <form action="/adminLog" method="post">
-        <button type="submit">Log</button>
+    <form action="/configPage" method="post">
+        <button type="submit">Configuration</button>
     </form>
-    <form action="/startPresentation" method="post">
-        <button id="startQuizBtn" type="submit">Commencer</button>
+    <form action="/choosePage" method="post">
+        <button type="submit">Présentations</button>
     </form>
-
+    <form action="/returnMenu" method="post">
+        <button class="answer-btn-write" type="submit">Menu</button>
+    </form>
     <script>
         function disableButton() {
             document.getElementById("startQuizBtn").disabled = true;

@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 import webbrowser
 from naoqi import ALProxy
-from flask import Flask, render_template, redirect, url_for, request, jsonify, Response
+from flask import Flask, render_template, redirect, url_for, request, jsonify, Response, session
 import socket
 from time import sleep
 import json
 import os
+from datetime import timedelta
 
 app = Flask(__name__)
 item_index = 0
 items_length = 0
+app.secret_key = 'votre_clé_secrète'  # Clé secrète pour la session
 
 # Adresse IP du robot Pepper et port
 pepper_ip = "11.0.0.108"
@@ -29,6 +31,13 @@ except Exception as e:
 
 # Changer la langue du robot en français
 #tts_proxy.setLanguage("French")
+
+
+@app.before_first_request
+def before_first_request():
+    session['logged_in'] = False
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(minutes=5)  # Durée de la session
 
 @app.route('/startQuiz', methods=['GET','POST'])
 def start_quiz():
@@ -54,6 +63,11 @@ def choose_presentation():
 
     # Rendre le modèle HTML en incluant les données des présentations
     return render_template('presentationPage.html', presentations=presentations)
+
+@app.route('/adminLog', methods=['GET','POST'])
+def login_page():
+    return render_template('login.html')
+
 
 @app.route('/selectPresentation', methods=['POST'])
 def select_presentation():
@@ -169,7 +183,7 @@ def submit_content():
         for content_item in content_data:
             if content_item['type'] == 'presentationName':
                 presentation_name = content_item['value']
-                #suppression de l'élément de la liste pour que le nom ne soit pas ajouté au contenu de la présentation
+                # Suppression de l'élément de la liste pour que le nom ne soit pas ajouté au contenu de la présentation
                 content_data.remove(content_item)
                 break
         
@@ -178,14 +192,17 @@ def submit_content():
         
         # Vérifier si le fichier existe déjà
         file_path = 'content_data.json'
-        presentations = []
+        presentations = {}
         if os.path.exists(file_path):
             with open(file_path, 'r') as file:
-                presentations = json.load(file).get('presentations', [])
+                presentations = json.load(file)
         
+        # Récupérer et conserver la présentation actuelle si elle existe
+        current_presentation = presentations.get('current_presentation', None)
+
         # Vérifier si le nom de la présentation existe déjà
         existing_presentation = None
-        for existing in presentations:
+        for existing in presentations.get('presentations', []):
             if existing['name'] == presentation_name:
                 existing_presentation = existing
                 break
@@ -196,15 +213,20 @@ def submit_content():
         else:
             # Sinon, créer une nouvelle présentation
             new_presentation = {"name": presentation_name, "content": content_data}
-            presentations.append(new_presentation)
+            presentations.setdefault('presentations', []).append(new_presentation)
+
+        # Réinsérer la présentation actuelle dans les données
+        if current_presentation:
+            presentations['current_presentation'] = current_presentation
         
         # Enregistrer les données dans le fichier JSON
         with open(file_path, 'w') as file:
-            json.dump({"presentations": presentations}, file, indent=4)
+            json.dump(presentations, file, indent=4)
         
         return jsonify({'message': 'Données enregistrées avec succès'}), 200
     else:
         return jsonify({'error': 'Méthode non autorisée'}), 405
+
 
 def get_current_presentation():
     # Charger les données depuis le fichier JSON
@@ -234,6 +256,22 @@ def question_page():
 # Fonction pour charger la page web dans une WebView sur la tablette de Pepper
 def load_webview():
     tablet_service.showWebview("http://%s:%d" % (adresse_ip, port))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Vérification des informations d'identification
+        if request.form['username'] == 'admin' and request.form['password'] == 'password':
+            session['logged_in'] = True
+            return redirect(url_for('admin_page'))
+    return render_template('login.html')
+
+@app.route('/adminPage', methods=['GET', 'POST'])
+def admin_page():
+    if 'logged_in' in session and session['logged_in']:
+        return render_template('adminPage.html')
+    else:
+        return redirect(url_for('login'))
 
 # Lancement du serveur Flask
 if __name__ == '__main__':

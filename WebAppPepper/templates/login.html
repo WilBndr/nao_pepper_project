@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>startQuiz</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,6 +21,10 @@
         form {
             margin: 0 auto;
             width: 300px;
+        }
+
+        button {
+            
         }
 
         button:hover {
@@ -50,21 +54,18 @@
             border-radius: 4px;
         }
 
+        
     </style>
 </head>
 <body>
-    <h2>Présentations : {{ current_presentation }}</h2>
-    <form action="/adminLog" method="post">
-        <button type="submit">Log</button>
+    <h2>Login</h2>
+    <form action="/login" method="post">
+        <input class="field" type="text" name="username" placeholder="Username" required><br>
+        <input class="field" type="password" name="password" placeholder="Password" required><br>
+        <button type="submit">Login</button>
     </form>
-    <form action="/startPresentation" method="post">
-        <button id="startQuizBtn" type="submit">Commencer</button>
+    <form action="/returnMenu" method="post">
+        <button class="answer-btn-write" type="submit">Menu</button>
     </form>
-
-    <script>
-        function disableButton() {
-            document.getElementById("startQuizBtn").disabled = true;
-        }
-    </script>
 </body>
 </html>
