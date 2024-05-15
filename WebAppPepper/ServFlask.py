@@ -112,6 +112,21 @@ def next_button():
         reset_index()
         return render_template('endQuiz.html')
     
+@app.route('/trueAnswer', methods=['GET','POST'])
+def true_button():
+    current_presentation_item = get_current_presentation_item()
+    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    #on doit faire -1 car l'index est incrémenté avant l'appel de la fonction
+    print(current_presentation_item[get_index()-1].get('vrai'))
+    return Response(status=204)
+    
+    
+@app.route('/wrongAnswer', methods=['GET','POST'])
+def false_button():
+    current_presentation_item = get_current_presentation_item()
+    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    return Response(status=204)
+    
 def increment_index():
     global item_index
     item_index += 1
@@ -197,8 +212,6 @@ def get_current_presentation():
         current_presentation = data.get('current_presentation', '')
     
     return current_presentation
-
-
 
 @app.route('/endQuiz')
 def end_quiz():
