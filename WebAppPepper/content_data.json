@@ -1,5 +1,5 @@
 {
-    "current_presentation": "Q2", 
+    "current_presentation": "WillemV12", 
     "presentations": [
         {
             "content": [
@@ -19,8 +19,8 @@
                 {
                     "faux": "cc", 
                     "type": "question", 
-                    "vrai": "c", 
-                    "value": "c"
+                    "value": "c", 
+                    "vrai": "c"
                 }, 
                 {
                     "type": "paragraph", 
@@ -29,14 +29,14 @@
                 {
                     "faux": "c", 
                     "type": "question", 
-                    "vrai": "c", 
-                    "value": "c"
+                    "value": "c", 
+                    "vrai": "c"
                 }, 
                 {
                     "faux": "c", 
                     "type": "question", 
-                    "vrai": "c", 
-                    "value": "c"
+                    "value": "c", 
+                    "vrai": "c"
                 }
             ], 
             "name": "DEDED"
@@ -50,14 +50,14 @@
                 {
                     "faux": "de", 
                     "type": "question", 
-                    "vrai": "de", 
-                    "value": "de"
+                    "value": "de", 
+                    "vrai": "de"
                 }, 
                 {
                     "faux": "de", 
                     "type": "question", 
-                    "vrai": "de", 
-                    "value": "de"
+                    "value": "de", 
+                    "vrai": "de"
                 }, 
                 {
                     "type": "paragraph", 
@@ -66,8 +66,8 @@
                 {
                     "faux": "de", 
                     "type": "question", 
-                    "vrai": "de", 
-                    "value": "de"
+                    "value": "de", 
+                    "vrai": "de"
                 }
             ], 
             "name": "WAY"
@@ -77,8 +77,8 @@
                 {
                     "faux": "de", 
                     "type": "question", 
-                    "vrai": "de", 
-                    "value": "de"
+                    "value": "de", 
+                    "vrai": "de"
                 }
             ], 
             "name": "dde"
@@ -101,8 +101,8 @@
                 {
                     "faux": "WillemV12", 
                     "type": "question", 
-                    "value": "WillemV12", 
-                    "vrai": "WillemV12"
+                    "vrai": "WillemV12", 
+                    "value": "WillemV12"
                 }, 
                 {
                     "type": "paragraph", 
@@ -111,8 +111,8 @@
                 {
                     "faux": "WillemV12", 
                     "type": "question", 
-                    "value": "WillemV12", 
-                    "vrai": "WillemV12"
+                    "vrai": "WillemV12", 
+                    "value": "WillemV12"
                 }
             ], 
             "name": "WillemV12"
@@ -219,8 +219,8 @@
                 {
                     "faux": "A2", 
                     "type": "question", 
-                    "value": "QUEST", 
-                    "vrai": "A1"
+                    "vrai": "A1", 
+                    "value": "QUEST"
                 }
             ], 
             "name": "Q2"

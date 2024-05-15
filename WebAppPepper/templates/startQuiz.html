@@ -29,7 +29,6 @@
 
         input[type="text"],
         input[type="password"],
-
         .field {
             margin-bottom: 20px;
             width: 100%;
@@ -40,7 +39,6 @@
         }
 
         button {
-            margin-bottom: 20px;
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
@@ -50,12 +48,20 @@
             border-radius: 4px;
         }
 
+        /* Positionnement du bouton de connexion */
+        .login-button {
+            width: 10%;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+
     </style>
 </head>
 <body>
     <h2>Présentations : {{ current_presentation }}</h2>
-    <form action="/adminLog" method="post">
-        <button type="submit">Log</button>
+    <form action="/adminLog" method="post" class="login-button">
+        <button type="submit">Login</button>
     </form>
     <form action="/startPresentation" method="post">
         <button id="startQuizBtn" type="submit">Commencer</button>
