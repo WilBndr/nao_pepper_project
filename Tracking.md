@@ -94,3 +94,6 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Présentation des robots aux METC à Pailles (Mauritius Emerging technologies Council)** - 10/05
 - **Présentation des robots aux METC à Pailles (Mauritius Emerging technologies Council)** - 11/05
 - **Implémentation de la rédaction de présentation pour Pepper via l'application web** - 13/05
+- **Implémentation de la sauvegarde de présentation pour Pepper via l'application web** - 14/05
+- **Implémentation du passage de présentation pour Pepper via l'application web** - 15/05
+- **Présentation mis parcour et test des script avant présentation pour Odysseo, conffiguration des presentation sur pepper** - 16/05
