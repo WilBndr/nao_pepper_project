@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 from datetime import timedelta
+import webbrowser
 from flask import Flask, render_template, request, redirect, url_for, session
 import socket
 from naoqi import ALProxy
-import atexit
 
 app = Flask(__name__)
 app.secret_key = 'votre_clé_secrète'  # Clé secrète pour la session
 
 # Adresse IP du robot NAO et port
-nao_ip = "11.0.0.101"
+nao_ip = "nao.local."
 nao_port = 9559
 
 # Connexion aux différents services du robot NAO
@@ -28,15 +28,14 @@ def before_first_request():
     session.permanent = True
     app.permanent_session_lifetime = timedelta(minutes=5)  # Durée de la session
 
-"""
-#installed_behaviors = behavior_manager.getInstalledBehaviors()
+
+installed_behaviors = behavior_manager.getInstalledBehaviors()
 
 # Affichage de la liste des comportements installés
 
 print("Liste des comportements installés sur le robot NAO :")
 for behavior_info in installed_behaviors:
     print("- {}".format(behavior_info))
-    """
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -91,6 +90,16 @@ def start_baby_shark_dance():
         print("Erreur lors du lancement de l'application BabySharkDance:", e)
     return redirect(url_for('index_page'))
 
+@app.route('/start_odysseo_presentation', methods=['POST'])
+def start_odysseo_presentation():
+    # Démarrer l'application "BabySharkDance"
+    try:
+        behavior_manager.runBehavior("welcome-odysseo/behavior_1")
+        print("Application lancée avec succès.")
+    except Exception as e:
+        print("Erreur lors du lancement de l'application BabySharkDance:", e)
+    return redirect(url_for('index_page'))
+
 @app.route('/stop_action', methods=['POST'])
 def stop_action():
     # Arrêter toutes les actions en cours sur le robot NAO
@@ -125,6 +134,7 @@ if __name__ == '__main__':
     port = 5000  # Par défaut, utilisez un autre port si nécessaire
 
     print("Port : %d" % port)
+    webbrowser.open("http://%s:%d" % (adresse_ip, port))
 
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)
