@@ -14,7 +14,7 @@ items_length = 0
 app.secret_key = 'votre_clé_secrète'  # Clé secrète pour la session
 
 # Adresse IP du robot Pepper et port
-pepper_ip = "11.0.0.108"
+pepper_ip = "11.255.255.100"
 pepper_port = 9559
 
 # Connexion aux différents services du robot Pepper
@@ -30,7 +30,7 @@ except Exception as e:
     print("Erreur lors de la connexion au robot Pepper:", e)
 
 # Changer la langue du robot en français
-#tts_proxy.setLanguage("French")
+tts_proxy.setLanguage("French")
 
 
 @app.before_first_request
@@ -42,7 +42,7 @@ def before_first_request():
 @app.route('/startQuiz', methods=['GET','POST'])
 def start_quiz():
     if request.method == 'POST':
-        animated_speech_proxy.say("\\rspd=100\\Bonjour! Merci de participer au quiz.")
+        #animated_speech_proxy.say("\\rspd=100\\Bonjour! Merci de participer au quiz.")
         # Mettre en pause l'exécution pendant 3 secondes
         sleep(1)
         # Rediriger vers la page question.html
@@ -110,7 +110,8 @@ def start_presentation():
 
 def robot_current_speach():
     current_presentation_item = get_current_presentation_item()
-    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    string_value = current_presentation_item[get_index()].get('value').encode('utf-8')
+    animated_speech_proxy.say(string_value)
     print(current_presentation_item[get_index()].get('value'))
     print(get_index())
     print(get_length())
@@ -129,7 +130,8 @@ def next_button():
 @app.route('/trueAnswer', methods=['GET','POST'])
 def true_button():
     current_presentation_item = get_current_presentation_item()
-    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    string_value = current_presentation_item[get_index()-1].get('vrai').encode('utf-8')
+    animated_speech_proxy.say(string_value)
     #on doit faire -1 car l'index est incrémenté avant l'appel de la fonction
     print(current_presentation_item[get_index()-1].get('vrai'))
     return Response(status=204)
@@ -138,7 +140,8 @@ def true_button():
 @app.route('/wrongAnswer', methods=['GET','POST'])
 def false_button():
     current_presentation_item = get_current_presentation_item()
-    #animated_speech_proxy.say(current_presentation_item[get_index()].get('value'))
+    string_value = current_presentation_item[get_index()-1].get('faux').encode('utf-8')
+    animated_speech_proxy.say(string_value)
     print(current_presentation_item[get_index()-1].get('faux'))
     return Response(status=204)
     
@@ -255,6 +258,7 @@ def question_page():
 
 # Fonction pour charger la page web dans une WebView sur la tablette de Pepper
 def load_webview():
+    print("Chargement de la page web dans une WebView sur la tablette de Pepper")
     tablet_service.showWebview("http://%s:%d" % (adresse_ip, port))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -285,7 +289,7 @@ if __name__ == '__main__':
     print("Port : %d" % port)
 
     # Charger la page web dans une WebView sur la tablette de Pepper
-    #load_webview()
+    load_webview()
 
     #ouvrir le navigateur
     webbrowser.open('http://%s:%d' % (adresse_ip, port))
