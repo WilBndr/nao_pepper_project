@@ -20,6 +20,7 @@ pepper_port = 9559
 # Connexion aux différents services du robot Pepper
 try:
     tablet_service = ALProxy("ALTabletService", pepper_ip, pepper_port)
+    autonomous_life_proxy = ALProxy("ALAutonomousLife", pepper_ip, pepper_port)
     motion_proxy = ALProxy("ALMotion", pepper_ip, pepper_port)
     behavior_manager = ALProxy("ALBehaviorManager", pepper_ip, pepper_port)
     tts_proxy = ALProxy("ALTextToSpeech", pepper_ip, pepper_port)
@@ -256,10 +257,27 @@ def index_page():
 def question_page():
     return render_template('question.html')
 
-# Fonction pour charger la page web dans une WebView sur la tablette de Pepper
+def handle_webview_error(error):
+    # Gérer l'erreur de chargement de la page web, par exemple en l'enregistrant dans un fichier journal
+    with open("webview_errors.log", "a") as log_file:
+        log_file.write("Error loading webview: %s" % (error))
+
+# Charger la page web dans une WebView sur la tablette de Pepper
 def load_webview():
     print("Chargement de la page web dans une WebView sur la tablette de Pepper")
-    tablet_service.showWebview("http://%s:%d" % (adresse_ip, port))
+    try:
+        tablet_service.showWebview("http://%s:%d" % (adresse_ip, port))
+    except Exception as e:
+        handle_webview_error(str(e))
+
+# Passer Pepper en mode Autonomous Life
+def set_autonomous_life():
+    try:
+        # Mettre Pepper en mode Autonomous Life
+        autonomous_life_proxy.setState("disabled")
+        print("Pepper est maintenant en mode Autonomous Life (interactif).")
+    except Exception as e:
+        print("Erreur lors du passage en mode Autonomous Life:", e)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -289,12 +307,16 @@ if __name__ == '__main__':
     print("Port : %d" % port)
 
     # Charger la page web dans une WebView sur la tablette de Pepper
+    #set_autonomous_life()
+
     load_webview()
 
     #ouvrir le navigateur
-    webbrowser.open('http://%s:%d' % (adresse_ip, port))
+    #webbrowser.open('http://%s:%d' % (adresse_ip, port))
 
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)
 
-    #ouvrir le navigateur
+    
+    
+    
