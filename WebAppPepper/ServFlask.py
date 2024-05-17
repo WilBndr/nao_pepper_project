@@ -309,10 +309,10 @@ if __name__ == '__main__':
     # Charger la page web dans une WebView sur la tablette de Pepper
     #set_autonomous_life()
 
-    load_webview()
+    #load_webview()
 
     #ouvrir le navigateur
-    #webbrowser.open('http://%s:%d' % (adresse_ip, port))
+    webbrowser.open('http://%s:%d' % (adresse_ip, port))
 
     # Lancement du serveur Flask
     app.run(host=adresse_ip, port=port)

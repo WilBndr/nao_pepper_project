@@ -29,13 +29,16 @@ def before_first_request():
     app.permanent_session_lifetime = timedelta(minutes=5)  # Durée de la session
 
 
-installed_behaviors = behavior_manager.getInstalledBehaviors()
+#installed_behaviors = behavior_manager.getInstalledBehaviors()
 
 # Affichage de la liste des comportements installés
 
+"""
 print("Liste des comportements installés sur le robot NAO :")
 for behavior_info in installed_behaviors:
     print("- {}".format(behavior_info))
+"""
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
