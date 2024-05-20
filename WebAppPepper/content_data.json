@@ -1,5 +1,5 @@
 {
-    "current_presentation": "PresentationUDM", 
+    "current_presentation": "Odysseo", 
     "presentations": [
         {
             "content": [
@@ -10,11 +10,30 @@
                 {
                     "faux": "Dommage cette question \u00e9tait fausse", 
                     "type": "question", 
-                    "value": "Cette question est elle vraie ?", 
-                    "vrai": "Bravo vous avez tout a fait raison elle est vrai "
+                    "vrai": "Bravo vous avez tout a fait raison elle est vrai ", 
+                    "value": "Cette question est elle vraie ?"
                 }
             ], 
             "name": "PresentationTest"
+        }, 
+        {
+            "content": [
+                {
+                    "type": "paragraph", 
+                    "value": "Bonjour je suis Pepper. Bienvenue a Odysseo, ce magnifique lieu ou vous allez découvrir le monde marin de l'ile Maurice et de l'Océan Indien.  "
+                }, 
+                {
+                    "type": "paragraph", 
+                    "value": "Nous avons 45 bassins de tailles différentes, 200 espèces et 3500 animaux. La capacité totale d'Odysseo est de 2 millions litres d'eau. \n"
+                }, 
+                {
+                    "faux": "Bravo, vous avez raison, il y a 200 espèces.", 
+                    "type": "question", 
+                    "value": "Y a-t-il 300 espèces au sein de l'aquarium ?", 
+                    "vrai": "Mince, vous vous êtes trompé, il y a 200 espèces."
+                }
+            ], 
+            "name": "Odysseo"
         }
     ]
 }

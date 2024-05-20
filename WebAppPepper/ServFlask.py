@@ -112,7 +112,7 @@ def start_presentation():
 def robot_current_speach():
     current_presentation_item = get_current_presentation_item()
     string_value = current_presentation_item[get_index()].get('value').encode('utf-8')
-    animated_speech_proxy.say(string_value)
+    animated_speech_proxy.say(string_value)             #   Pas d'incrementation tant que le robot n'a pas finis de parler -> problième d'index
     print(current_presentation_item[get_index()].get('value'))
     print(get_index())
     print(get_length())
@@ -125,16 +125,14 @@ def next_button():
         return Response(status=204)
     else:
         #on reset l'index de manière a poivoir relancer la présentation
-        reset_index()
         return render_template('endQuiz.html')
     
 @app.route('/trueAnswer', methods=['GET','POST'])
 def true_button():
     current_presentation_item = get_current_presentation_item()
+    #on doit faire -1 car l'index est incrémenté avant l'appel de la fonction
     string_value = current_presentation_item[get_index()-1].get('vrai').encode('utf-8')
     animated_speech_proxy.say(string_value)
-    #on doit faire -1 car l'index est incrémenté avant l'appel de la fonction
-    print(current_presentation_item[get_index()-1].get('vrai'))
     return Response(status=204)
     
     
@@ -143,7 +141,6 @@ def false_button():
     current_presentation_item = get_current_presentation_item()
     string_value = current_presentation_item[get_index()-1].get('faux').encode('utf-8')
     animated_speech_proxy.say(string_value)
-    print(current_presentation_item[get_index()-1].get('faux'))
     return Response(status=204)
     
 def increment_index():
@@ -246,6 +243,13 @@ def end_quiz():
 
 @app.route('/returnMenu', methods=['GET','POST'])
 def return_menu():
+    return render_template('startQuiz.html',current_presentation=get_current_presentation())
+
+@app.route('/returnMenuAfterEnd', methods=['GET','POST'])
+def return_menu_end():
+    print(item_index)
+    reset_index()
+    print(item_index)
     return render_template('startQuiz.html',current_presentation=get_current_presentation())
 
 @app.route('/')
