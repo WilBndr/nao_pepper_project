@@ -83,8 +83,6 @@ def say_hello():
 
 @app.route('/start_baby_shark_dance', methods=['POST'])
 def start_baby_shark_dance():
-    # Réduire le volume au minimum
-    audio_device_proxy.setOutputVolume(0)
     # Démarrer l'application "BabySharkDance"
     try:
         behavior_manager.runBehavior("baby_shark_dance-566cf7/behavior_1")
@@ -95,7 +93,6 @@ def start_baby_shark_dance():
 
 @app.route('/start_odysseo_presentation', methods=['POST'])
 def start_odysseo_presentation():
-    # Démarrer l'application "BabySharkDance"
     try:
         behavior_manager.runBehavior("welcome-odysseo/behavior_1")
         print("Application lancée avec succès.")
