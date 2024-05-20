@@ -97,3 +97,7 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Implémentation de la sauvegarde de présentation pour Pepper via l'application web** - 14/05
 - **Implémentation du passage de présentation pour Pepper via l'application web** - 15/05
 - **Présentation mis parcour et test des script avant présentation pour Odysseo, conffiguration des presentation sur pepper** - 16/05
+- **Documentation installation de l'environnement pour applications robots** - 17/05
+- **Tests sur application de Pepper** - 17/05
+- **Réaisation de la vidéo de présentation de l'application pour Pepper** - 20/05
+- **Préparation de la démo pour Odysseo** - 20/05
