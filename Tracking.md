@@ -101,3 +101,5 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Tests sur application de Pepper** - 17/05
 - **Réaisation de la vidéo de présentation de l'application pour Pepper** - 20/05
 - **Préparation de la démo pour Odysseo** - 20/05
+- **Avancement sur le rapport de stage** - 21/05
+- **Finalisation du guide d'installation** - 21/05
