@@ -83,12 +83,21 @@ def say_hello():
 
 @app.route('/start_baby_shark_dance', methods=['POST'])
 def start_baby_shark_dance():
+    # Arrêter tous les comportements en cours
+    try:
+        running_behaviors = behavior_manager.getRunningBehaviors()
+        for behavior in running_behaviors:
+            behavior_manager.stopBehavior(behavior)
+    except Exception as e:
+        print("Erreur lors de l'arrêt des comportements en cours:", e)
+
     # Démarrer l'application "BabySharkDance"
     try:
         behavior_manager.runBehavior("baby_shark_dance-566cf7/behavior_1")
         print("Application BabySharkDance lancée avec succès.")
     except Exception as e:
         print("Erreur lors du lancement de l'application BabySharkDance:", e)
+
     return redirect(url_for('index_page'))
 
 @app.route('/start_odysseo_presentation', methods=['POST'])
