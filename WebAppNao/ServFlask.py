@@ -83,14 +83,9 @@ def say_hello():
 
 @app.route('/start_baby_shark_dance', methods=['POST'])
 def start_baby_shark_dance():
-    # Arrêter tous les comportements en cours
-    try:
-        running_behaviors = behavior_manager.getRunningBehaviors()
-        for behavior in running_behaviors:
-            behavior_manager.stopBehavior(behavior)
-    except Exception as e:
-        print("Erreur lors de l'arrêt des comportements en cours:", e)
 
+    stop_running_behaviors()
+    
     # Démarrer l'application "BabySharkDance"
     try:
         behavior_manager.runBehavior("baby_shark_dance-566cf7/behavior_1")
@@ -102,6 +97,9 @@ def start_baby_shark_dance():
 
 @app.route('/start_odysseo_presentation', methods=['POST'])
 def start_odysseo_presentation():
+
+    stop_running_behaviors()
+
     try:
         behavior_manager.runBehavior("welcome-odysseo/behavior_1")
         print("Application lancée avec succès.")
@@ -133,6 +131,15 @@ def change_volume():
     except Exception as e:
         print("Erreur lors de la modification du volume:", e)
     return redirect(url_for('index_page'))
+
+def stop_running_behaviors():
+    # Arrêter tous les comportements en cours
+    try:
+        running_behaviors = behavior_manager.getRunningBehaviors()
+        for behavior in running_behaviors:
+            behavior_manager.stopBehavior(behavior)
+    except Exception as e:
+        print("Erreur lors de l'arrêt des comportements en cours:", e)  
 
 if __name__ == '__main__':
     # Obtention de l'adresse IP de l'ordinateur
