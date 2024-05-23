@@ -14,6 +14,13 @@
         <BehaviorDescription name="behavior" src="No" xar="behavior.xar" />
         <BehaviorDescription name="behavior" src="Excited" xar="behavior.xar" />
         <BehaviorDescription name="behavior" src="Interst_about_sharks" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="AskToVisitors" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="BodyBuilding_Pose" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="Nao_Knows" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="Why_protect_sharks" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="Feels_good_about_sharks" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="bby_shark_propose" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="thanks" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
     <Resources />
