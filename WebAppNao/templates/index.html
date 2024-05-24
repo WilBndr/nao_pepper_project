@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,18 @@
             z-index: 1000; /* Assure que la div est au-dessus de tout le reste */
         }
 
+        .movment-container {
+            border-radius: 4px;
+            margin: auto;
+            margin-top: 70px;
+            margin-bottom: 20px;    
+            width: 90%; /* Occupe toute la largeur */
+            background-color: #fff; /* Fond blanc pour la div */
+            padding: 10px; /* Ajoute un peu de marge autour du contenu */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+            padding: 30px;
+        }
+
         h1 {
             color: #333;
             margin: auto;
@@ -38,11 +50,12 @@
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 20px 20px;
             border: none;
             border-radius: 4px;
+            width: 90%;
             cursor: pointer;
-            margin: 5px;
+            margin: 20px;
             transition: background-color 0.3s;
         }
 
@@ -61,13 +74,9 @@
             margin-bottom: 20px;
             margin-right: 20px;
         }
+
         .mouvement {
             margin-top: 60px;
-        }
-
-        h2 {
-            margin-top: 40px;
-            color: #333;
         }
 
         input[type="range"] {
@@ -90,6 +99,30 @@
             cursor: pointer;
             border-radius: 50%;
         }
+
+        /* Contenu initial caché */
+        .contenu-caché {
+            display: none;
+        }
+
+        .bouton-afficher {
+            background-color: #333;
+            margin: auto;
+        }
+
+        .bouton-afficher:hover {
+            background-color: #555;
+        }
+
+        .bouton-cacher {
+            background-color: #333;
+            margin: auto;
+        }
+
+        .bouton-cacher:hover {
+            background-color: #555;
+        }
+
     </style>
 </head>
 <body>
@@ -103,32 +136,140 @@
         </form>
     </div>
 
-    <div class="mouvement">
+    <div class="movment-container">
+        <h2>Contrôle de la posture</h2>
+        <button class="bouton-afficher" data-target="posture-contenu">Afficher le contenu</button>
+        <div class="contenu-caché posture-contenu">
+            <button class="bouton-cacher" data-target="posture-contenu">Cacher le contenu</button>
+            <form action="/stand_up" method="post">
+                <button type="submit">Se lever</button>
+            </form>
+            <form action="/sit_down" method="post">
+                <button type="submit">S'asseoir</button>
+            </form>
+            <form action="/lie_down" method="post">
+                <button type="submit">Se coucher</button>
+            </form>
+            <form action="/rest" method="post">
+                <button type="submit">Repos</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="movment-container">
         <h2>Contrôle du mouvement</h2>
-        <form action="/move_forward" method="post">
-            <button type="submit">Avancer</button>
-        </form>
-        <form action="/move_backward" method="post">
-            <button type="submit">Reculer</button>
-        </form>
-        <!-- Ajoutez d'autres boutons pour d'autres mouvements du robot NAO -->
-        <form action="/say_hello" method="post">
-            <button type="submit">Parler</button>
-        </form>
-        <form action="/start_baby_shark_dance" method="post">
-            <button type="submit">Baby Shark Dance</button>
-        </form>
-        <form action="/start_odysseo_presentation" method="post">
-            <button type="submit">Odysseo présentation</button>
+        <button class="bouton-afficher" data-target="mouvement-contenu">Afficher le contenu</button>
+        <div class="contenu-caché mouvement-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="mouvement-contenu">Cacher le contenu</button>
+            <form action="/move_forward" method="post">
+                <button type="submit">Avancer</button>
+            </form>
+            <form action="/move_backward" method="post">
+                <button type="submit">Reculer</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="movment-container">
+        <h2>Contrôle danse</h2>
+        <button class="bouton-afficher" data-target="danse-contenu">Afficher le contenu</button>
+        <div class="contenu-caché danse-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="danse-contenu">Cacher le contenu</button>
+            <form action="/start_baby_shark_dance" method="post">
+                <button type="submit">Baby Shark Dance</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="movment-container">
+        <h2>Contrôle bienvenue</h2>
+        <button class="bouton-afficher" data-target="welcome-contenu">Afficher le contenu</button>
+        <div class="contenu-caché welcome-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="welcome-contenu">Cacher le contenu</button>
+            <form action="/start_odysseo_presentation" method="post">
+                <button type="submit">Odysseo présentation</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="movment-container">
+        <h2>Contrôle shark présentation</h2>
+        <button class="bouton-afficher" data-target="shark-contenu">Afficher le contenu</button>
+        <div class="contenu-caché shark-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="shark-contenu">Cacher le contenu</button>
+            <form action="/me_fr_action" method="post">
+                <button type="submit">1 - Moi !</button>
+            </form>
+            <form action="/fear_fr_action" method="post">
+                <button type="submit">2 - Peur </button>
+            </form>
+            <form action="/notConviced_fr_action" method="post">
+                <button type="submit">3 - Pas convaincu </button>
+            </form>
+            <form action="/sharkFish_fr_action" method="post">
+                <button type="submit">4 - Poissons = requin ? </button>
+            </form>
+            <form action="/ears_fr_action" method="post">
+                <button type="submit">5 - Touche ses oreilles </button>
+            </form>
+            <form action="/lookAtAquarium_fr_action" method="post">
+                <button type="submit">6 - Regarde aquarium </button>
+            </form>
+            <form action="/unbelievable_fr_action" method="post">
+                <button type="submit">7 - C'est pas vrai ?! </button>
+            </form>
+            <form action="/weAreSharks_fr_action" method="post">
+                <button type="submit">8 - Nous sommes des requins </button>
+            </form>
+            <form action="/no_fr_action" method="post">
+                <button type="submit">9 - Non</button>
+            </form>
+            <form action="/IWant_fr_action" method="post">
+                <button type="submit">10 - Oui, je veux !</button>
+            </form>
+            <form action="/lookAtAquarium_fr_action" method="post">
+                <button type="submit">11 - Regarde aquarium </button>
+            </form>
+            <form action="/interest_fr_action" method="post">
+                <button type="submit">12 - Requin interessant  </button>
+            </form>
+            <form action="/AskVisitors_fr_action" method="post">
+                <button type="submit">13 - Demande aux visiteurs </button>
+            </form>
+            <form action="/BodyBuilding_fr_action" method="post">
+                <button type="submit">14 - BodyBuilding </button>
+            </form>
+            <form action="/IKnow_fr_action" method="post">
+                <button type="submit">15 - Je sais ! </button>
+            </form>
+            <form action="/ProtectSharks_fr_action" method="post">
+                <button type="submit">15 - Comment protéger les requins ?</button>
+            </form>
+            <form action="/LikeSharks_fr_action" method="post">
+                <button type="submit">16 - J'aime les requins </button>
+            </form>
+            <form action="/SharkDancePropose_fr_action" method="post">
+                <button type="submit">17 - Danse du requin propositions </button>
+            </form>
+            <form action="/start_baby_shark_dance" method="post">
+                <button type="submit">18 - Baby Shark Dance</button>
+            </form>
+            <form action="/start_shark_dance" method="post">
+                <button type="submit">19 - Merci !</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="movment-container">
+        <h2>Contrôle du volume</h2>
+        <form id="volumeForm" action="/change_volume" method="post">
+            <label for="volume">Volume :</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+            <button type="submit">Appliquer</button>
         </form>
     </div>
 
-    <h2>Contrôle du volume</h2>
-    <form id="volumeForm" action="/change_volume" method="post">
-        <label for="volume">Volume :</label>
-        <input type="range" id="volume" name="volume" min="0" max="100" value="50">
-        <button type="submit">Appliquer</button>
-    </form>
+    
 
     <script>
         // Récupérer le curseur de volume
@@ -145,6 +286,39 @@
         volumeInput.addEventListener('input', function() {
             // Stocker la nouvelle valeur du volume localement
             localStorage.setItem('volume', volumeInput.value);
+        });
+
+        // Gestion des boutons Afficher/Cacher
+        const boutonsAfficher = document.querySelectorAll('.bouton-afficher');
+        const boutonsCacher = document.querySelectorAll('.bouton-cacher');
+
+        boutonsAfficher.forEach(function(boutonAfficher) {
+            boutonAfficher.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const contenuAfficher = document.querySelector('.' + targetId);
+
+                contenuAfficher.style.display = 'block';
+                this.style.display = 'none';
+
+                // Afficher le bouton Cacher associé
+                const boutonCacher = document.querySelector('.bouton-cacher[data-target="' + targetId + '"]');
+                boutonCacher.style.display = 'block';
+            });
+        });
+
+        boutonsCacher.forEach(function(boutonCacher) {
+            boutonCacher.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const contenuAfficher = document.querySelector('.' + targetId);
+
+                contenuAfficher.style.display = 'none';
+
+                // Afficher le bouton Afficher associé
+                const boutonAfficher = document.querySelector('.bouton-afficher[data-target="' + targetId + '"]');
+                boutonAfficher.style.display = 'block';
+
+                this.style.display = 'none';
+            });
         });
     </script>
 </body>
