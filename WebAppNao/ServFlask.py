@@ -3,6 +3,7 @@ from datetime import timedelta
 import webbrowser
 from flask import Flask, render_template, request, redirect, url_for, session
 import socket
+import json
 from naoqi import ALProxy
 
 app = Flask(__name__)
@@ -19,6 +20,7 @@ try:
     tts_proxy = ALProxy("ALTextToSpeech", nao_ip, nao_port)
     posture_proxy = ALProxy("ALRobotPosture", nao_ip, nao_port)
     audio_device_proxy = ALProxy("ALAudioDevice", nao_ip, nao_port)
+    battery_proxy = ALProxy("ALBattery", nao_ip, nao_port)
 except Exception as e:
     print("Erreur lors de la connexion au robot NAO:", e)
 
@@ -39,6 +41,15 @@ for behavior_info in installed_behaviors:
     print("- {}".format(behavior_info))
 """
 
+@app.route('/battery_level')
+def battery_level():
+    # Obtenir le niveau de la batterie du robot NAO
+    #battery_level = battery_proxy.getBatteryCharge()
+
+    battery_level = 19
+
+    # Convertir le dictionnaire en JSON en utilisant json.dumps
+    return json.dumps({'battery_level': battery_level})
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -46,7 +57,7 @@ def login():
         # Vérification des informations d'identification
         if request.form['username'] == 'admin' and request.form['password'] == 'password':
             session['logged_in'] = True
-            return redirect(url_for('index_page'))
+            return render_template('index.html')
     return render_template('login.html')
 
 @app.route('/logout', methods=['POST'])

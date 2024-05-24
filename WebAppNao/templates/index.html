@@ -31,7 +31,7 @@
             margin: auto;
             margin-top: 70px;
             margin-bottom: 20px;    
-            width: 90%; /* Occupe toute la largeur */
+            width: 80%; /* Occupe toute la largeur */
             background-color: #fff; /* Fond blanc pour la div */
             padding: 10px; /* Ajoute un peu de marge autour du contenu */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
@@ -65,11 +65,16 @@
 
         .stop_action {
             background-color: #f44336;
-            margin: auto;
-            margin-bottom: 20px;
+ 
         }
 
         .disconnect {
+            margin: auto;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .stop_action {
             margin: auto;
             margin-bottom: 20px;
             margin-right: 20px;
@@ -121,6 +126,34 @@
 
         .bouton-cacher:hover {
             background-color: #555;
+        }
+
+        .battery-wrapper {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .battery-level {
+            height: 100%;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+        .battery-text {
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Couleurs de la jauge en fonction du pourcentage */
+        .battery-level.low {
+            background-color: #f44336; /* Rouge */
+        }
+        .battery-level.medium {
+            background-color: #ffc107; /* Jaune */
+        }
+        .battery-level.high {
+            background-color: #4CAF50; /* Vert */
         }
 
     </style>
@@ -263,12 +296,18 @@
     <div class="movment-container">
         <h2>Contrôle du volume</h2>
         <form id="volumeForm" action="/change_volume" method="post">
-            <label for="volume">Volume :</label>
             <input type="range" id="volume" name="volume" min="0" max="100" value="50">
             <button type="submit">Appliquer</button>
         </form>
     </div>
 
+    <div class="movment-container">
+        <h2>Niveau de batterie du robot NAO</h2>
+        <div class="battery-wrapper">
+            <div class="battery-level" id="battery-level"></div>
+        </div>
+        <div class="battery-text">Niveau de batterie : <span id="battery-text">0</span>%</div>
+    </div>
     
 
     <script>
@@ -320,6 +359,31 @@
                 this.style.display = 'none';
             });
         });
+
+        function updateBatteryLevel() {
+            fetch('/battery_level')
+                .then(response => response.json())
+                .then(data => {
+                    const batteryLevel = data.battery_level || 0;
+                    document.getElementById('battery-level').style.width = batteryLevel + '%';
+                    document.getElementById('battery-text').innerText = batteryLevel;
+
+                    // Mettre à jour la classe CSS en fonction du pourcentage de batterie
+                    const batteryElement = document.getElementById('battery-level');
+                    batteryElement.className = 'battery-level';
+
+                    if (batteryLevel < 20) {
+                        batteryElement.classList.add('low');
+                    } else if (batteryLevel < 50) {
+                        batteryElement.classList.add('medium');
+                    } else {
+                        batteryElement.classList.add('high');
+                    }
+                });
+        }
+
+        setInterval(updateBatteryLevel, 5000); // Actualiser toutes les 2 minutes
+
     </script>
 </body>
 </html>
