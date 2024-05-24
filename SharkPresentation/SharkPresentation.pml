@@ -21,6 +21,7 @@
         <BehaviorDescription name="behavior" src="Feels_good_about_sharks" xar="behavior.xar" />
         <BehaviorDescription name="behavior" src="bby_shark_propose" xar="behavior.xar" />
         <BehaviorDescription name="behavior" src="thanks" xar="behavior.xar" />
+        <BehaviorDescription name="behavior" src="turnBothSides" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
     <Resources />
