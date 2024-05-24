@@ -16,7 +16,8 @@
 
 ### Improvement clue
 - Bluetooth connection to the robot for louder sound
-- Button to remove the robot's autonomous mode on the Web App*
+- Show battery level on the app
+- Button to remove the robot's autonomous mode on the Web App
 - Slow down some sentences of the NAO welcome script
 - Fix the problem when launching several behaviors in succession
 
