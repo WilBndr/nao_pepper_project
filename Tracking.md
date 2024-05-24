@@ -104,3 +104,4 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Avancement sur le rapport de stage** - 21/05
 - **Finalisation du guide d'installation** - 21/05
 - **Présentation de l'avancé du projet à Odysseo** 22/05
+- **Implémentation du dernier script fournis par Odysseo** - 23/05
