@@ -42,6 +42,7 @@
         h1 {
             color: #333;
             margin: auto;
+            font-size: 200%;
         }
 
         form {
@@ -66,7 +67,14 @@
 
         .stop_action {
             background-color: #f44336;
- 
+            color: white;
+            padding: 20px 20px;
+            border: none;
+            border-radius: 4px;
+            width: 90%;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s;
         }
 
         .disconnect {
@@ -161,8 +169,8 @@
 </head>
 <body>
     <div class="control-container">
-        <form action="/stop_action" method="post">
-            <button class="stop_action" type="submit">Stop</button>
+        <form>
+            <button class="stop_action" type="submit" id="stop">Stop</button>
         </form>
         <h1>Contrôle du Robot NAO</h1>
         <form action="/logout" method="post">
@@ -175,18 +183,10 @@
         <button class="bouton-afficher" data-target="posture-contenu">Afficher le contenu</button>
         <div class="contenu-caché posture-contenu">
             <button class="bouton-cacher" data-target="posture-contenu">Cacher le contenu</button>
-            <form action="/stand_up" method="post">
-                <button type="submit">Se lever</button>
-            </form>
-            <form action="/sit_down" method="post">
-                <button type="submit">S'asseoir</button>
-            </form>
-            <form action="/lie_down" method="post">
-                <button type="submit">Se coucher</button>
-            </form>
-            <form action="/rest" method="post">
-                <button type="submit">Repos</button>
-            </form>
+            <button type="submit" id="Stand">Se lever</button>
+            <button type="submit" id="Sit">S'asseoir</button>
+            <button type="submit" id="LyingBack">Se coucher</button>
+            <button type="submit" id="LyingBelly">Repos</button>
         </div>
     </div>
 
@@ -195,12 +195,8 @@
         <button class="bouton-afficher" data-target="mouvement-contenu">Afficher le contenu</button>
         <div class="contenu-caché mouvement-contenu">
             <button class="bouton-cacher" style="display: none;" data-target="mouvement-contenu">Cacher le contenu</button>
-            <form action="/move_forward" method="post">
-                <button type="submit">Avancer</button>
-            </form>
-            <form action="/move_backward" method="post">
-                <button type="submit">Reculer</button>
-            </form>
+            <button type="submit" id="goForward">Avancer</button>
+            <button type="submit" id="goBackward">Reculer</button>
         </div>
     </div>
 
@@ -209,9 +205,7 @@
         <button class="bouton-afficher" data-target="danse-contenu">Afficher le contenu</button>
         <div class="contenu-caché danse-contenu">
             <button class="bouton-cacher" style="display: none;" data-target="danse-contenu">Cacher le contenu</button>
-            <form action="/start_baby_shark_dance" method="post">
-                <button type="submit">Baby Shark Dance</button>
-            </form>
+            <button type="submit" id="start_baby_shark_dance">Baby Shark Dance</button>
         </div>
     </div>
 
@@ -220,9 +214,7 @@
         <button class="bouton-afficher" data-target="welcome-contenu">Afficher le contenu</button>
         <div class="contenu-caché welcome-contenu">
             <button class="bouton-cacher" style="display: none;" data-target="welcome-contenu">Cacher le contenu</button>
-            <form action="/start_odysseo_presentation" method="post">
-                <button type="submit">Odysseo présentation</button>
-            </form>
+            <button type="submit" id="OdysseoPres">Odysseo présentation</button>
         </div>
     </div>
 
@@ -256,10 +248,8 @@
 
     <div class="movment-container">
         <h2>Contrôle du volume</h2>
-        <form id="volumeForm" action="/change_volume" method="post">
             <input type="range" id="volume" name="volume" min="0" max="100" value="50">
-            <button type="submit">Appliquer</button>
-        </form>
+            <button type="submit" id="volumeBtn">Appliquer</button>
     </div>
 
     <div class="movment-container">
@@ -343,9 +333,155 @@
                 });
         }
 
-        setInterval(updateBatteryLevel, 100000); // Actualiser toutes les 2 minutes
+        setInterval(updateBatteryLevel, 5000); // Actualiser toutes les 2 minutes
 
         $(document).ready(function() {
+
+            $("#goForward").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "move", x: 0.5, y: 0, theta: 0}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Action lancée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du lancement de l'action: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#goBackward").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "move", x: -0.5, y: 0, theta: 0}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Action lancée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du lancement de l'action: " + error.responseText);
+                    }
+                });
+            });
+            
+
+            $("#volumeBtn").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "set_volume" , volume: volumeInput.value}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Action stoppée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors de l'arrêt du changement de volume: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#stop").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "go_posture", posture: "Stand"}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Action stoppée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors de l'arrêt de l'action: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#Stand").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "go_posture", posture: "Stand"}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Posture changée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du changement de posture: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#Sit").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "go_posture", posture: "Sit"}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Posture changée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du changement de posture: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#LyingBack").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "go_posture", posture: "LyingBack"}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Posture changée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du changement de posture: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#LyingBelly").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "go_posture", posture: "LyingBelly"}),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Posture changée: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du changement de posture: " + error.responseText);
+                    }
+                });
+            });
+
+            $("#OdysseoPres").click(function() {
+                $.ajax({
+                    url: "/",
+                    type: "POST",
+                    data: JSON.stringify({ action: "start_behavior", behavior: "welcome-odysseo/behavior_1" }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(response) {
+                        console.log("Comportement lancé: " + response.message);
+                    },
+                    error: function(error) {
+                        alert("Erreur lors du lancement du comportement: " + error.responseText);
+                    }
+                });
+            });
+
             $("#me").click(function() {
                 $.ajax({
                     url: "/",
