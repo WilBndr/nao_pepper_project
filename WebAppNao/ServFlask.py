@@ -34,7 +34,7 @@ def before_first_request():
 
 #installed_behaviors = behavior_manager.getInstalledBehaviors()
 
-posture_proxy.getPostureList()  # Affichage de la liste des postures installées
+#posture_proxy.getPostureList()  # Affichage de la liste des postures installées
 
 # Affichage de la liste des comportements installés
 
@@ -48,8 +48,8 @@ for behavior_info in installed_behaviors:
 def battery_level():
     # Obtenir le niveau de la batterie du robot NAO
     
-    battery_level = battery_proxy.getBatteryCharge()
-
+    #battery_level = battery_proxy.getBatteryCharge()
+    battery_level = 50
     # Convertir le dictionnaire en JSON en utilisant json.dumps
     return json.dumps({'battery_level': battery_level})
 

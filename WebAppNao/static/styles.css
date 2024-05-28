@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+    padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
+}
+
+.control-container {
+    display: flex; /* Utilise Flexbox */
+    position: fixed; /* La div est positionnée de manière fixe */
+    top: 0; /* En haut de la fenêtre */
+    left: 0; /* Alignée à gauche */
+    width: 100%; /* Occupe toute la largeur */
+    background-color: #fff; /* Fond blanc pour la div */
+    padding: 10px; /* Ajoute un peu de marge autour du contenu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    z-index: 1000; /* Assure que la div est au-dessus de tout le reste */
+}
+
+.movment-container {
+    border-radius: 4px;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 20px;    
+    width: 80%; /* Occupe toute la largeur */
+    background-color: #fff; /* Fond blanc pour la div */
+    padding: 10px; /* Ajoute un peu de marge autour du contenu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+    padding: 30px;
+}
+
+h1 {
+    color: #333;
+    margin: auto;
+    font-size: 200%;
+}
+
+form {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 4px;
+    width: 90%;
+    cursor: pointer;
+    margin: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.stop_action {
+    background-color: #f44336;
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 4px;
+    width: 90%;
+    cursor: pointer;
+    margin: 20px;
+    transition: background-color 0.3s;
+}
+
+.disconnect {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.stop_action {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.mouvement {
+    margin-top: 60px;
+}
+
+input[type="range"] {
+    width: 80%;
+    margin-top: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Contenu initial caché */
+.contenu-caché {
+    display: none;
+}
+
+.bouton-afficher {
+    background-color: #333;
+    margin: auto;
+}
+
+.bouton-afficher:hover {
+    background-color: #555;
+}
+
+.bouton-cacher {
+    background-color: #333;
+    margin: auto;
+}
+
+.bouton-cacher:hover {
+    background-color: #555;
+}
+
+.battery-wrapper {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.battery-level {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+.battery-text {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Couleurs de la jauge en fonction du pourcentage */
+.battery-level.low {
+    background-color: #f44336; /* Rouge */
+}
+.battery-level.medium {
+    background-color: #ffc107; /* Jaune */
+}
+.battery-level.high {
+    background-color: #4CAF50; /* Vert */
+}

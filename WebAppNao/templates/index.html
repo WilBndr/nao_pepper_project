@@ -2,170 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrôle du Robot NAO</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-            text-align: center;
-            padding-top: 50px; /* Ajoute de l'espace en haut pour ne pas cacher la div */
-        }
-
-        .control-container {
-            display: flex; /* Utilise Flexbox */
-            position: fixed; /* La div est positionnée de manière fixe */
-            top: 0; /* En haut de la fenêtre */
-            left: 0; /* Alignée à gauche */
-            width: 100%; /* Occupe toute la largeur */
-            background-color: #fff; /* Fond blanc pour la div */
-            padding: 10px; /* Ajoute un peu de marge autour du contenu */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
-            z-index: 1000; /* Assure que la div est au-dessus de tout le reste */
-        }
-
-        .movment-container {
-            border-radius: 4px;
-            margin: auto;
-            margin-top: 70px;
-            margin-bottom: 20px;    
-            width: 80%; /* Occupe toute la largeur */
-            background-color: #fff; /* Fond blanc pour la div */
-            padding: 10px; /* Ajoute un peu de marge autour du contenu */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
-            padding: 30px;
-        }
-
-        h1 {
-            color: #333;
-            margin: auto;
-            font-size: 200%;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 20px;
-            border: none;
-            border-radius: 4px;
-            width: 90%;
-            cursor: pointer;
-            margin: 20px;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        .stop_action {
-            background-color: #f44336;
-            color: white;
-            padding: 20px 20px;
-            border: none;
-            border-radius: 4px;
-            width: 90%;
-            cursor: pointer;
-            margin: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .disconnect {
-            margin: auto;
-            margin-bottom: 20px;
-            margin-right: 20px;
-        }
-
-        .stop_action {
-            margin: auto;
-            margin-bottom: 20px;
-            margin-right: 20px;
-        }
-
-        .mouvement {
-            margin-top: 60px;
-        }
-
-        input[type="range"] {
-            width: 80%;
-            margin-top: 10px;
-            -webkit-appearance: none;
-            appearance: none;
-            background-color: #ddd;
-            height: 10px;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #4CAF50;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-
-        /* Contenu initial caché */
-        .contenu-caché {
-            display: none;
-        }
-
-        .bouton-afficher {
-            background-color: #333;
-            margin: auto;
-        }
-
-        .bouton-afficher:hover {
-            background-color: #555;
-        }
-
-        .bouton-cacher {
-            background-color: #333;
-            margin: auto;
-        }
-
-        .bouton-cacher:hover {
-            background-color: #555;
-        }
-
-        .battery-wrapper {
-            width: 100%;
-            height: 50px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .battery-level {
-            height: 100%;
-            background-color: #4CAF50;
-            transition: width 0.3s ease;
-        }
-        .battery-text {
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* Couleurs de la jauge en fonction du pourcentage */
-        .battery-level.low {
-            background-color: #f44336; /* Rouge */
-        }
-        .battery-level.medium {
-            background-color: #ffc107; /* Jaune */
-        }
-        .battery-level.high {
-            background-color: #4CAF50; /* Vert */
-        }
-
-    </style>
 </head>
 <body>
     <div class="control-container">
@@ -219,10 +59,10 @@
     </div>
 
     <div class="movment-container">
-        <h2>Contrôle shark présentation</h2>
-        <button class="bouton-afficher" data-target="shark-contenu">Afficher le contenu</button>
-        <div class="contenu-caché shark-contenu">
-            <button class="bouton-cacher" style="display: none;" data-target="shark-contenu">Cacher le contenu</button>
+        <h2>Contrôle présentation requins FR</h2>
+        <button class="bouton-afficher" data-target="shark-FR-contenu">Afficher le contenu</button>
+        <div class="contenu-caché shark-FR-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="shark-FR-contenu">Cacher le contenu</button>
             <button type ="submit" id="me">1 - Moi !</button>
             <button type="submit" id="fear">2 - Peur </button>
             <button type="submit" id="notConvived">3 - Pas convaincu </button>
@@ -243,6 +83,34 @@
             <button type="submit" id="dancePropose">17 - Danse du requin propositions </button>
             <button type="submit" id="start_baby_shark_dance">18 - Baby Shark Dance</button>
             <button type="submit" id="thanks">19 - Merci !</button>
+        </div>
+    </div>
+
+    <div class="movment-container">
+        <h2>Contrôl présentation sharks ENG</h2>
+        <button class="bouton-afficher" data-target="shark-contenu">Show content</button>
+        <div class="contenu-caché shark-contenu">
+            <button class="bouton-cacher" style="display: none;" data-target="shark-contenu">Hide content</button>
+            <button type ="submit" id="me_2">1 - Me !</button>
+            <button type="submit" id="fear_2">2 - Fear </button>
+            <button type="submit" id="notConvived_2">3 - Not convinced </button>
+            <button type="submit" id="sharksFish_2">4 - Fish = shark ? </button>
+            <button type="submit" id="ears">5 - Touching ears </button>
+            <button type="submit" id="lookAtAquarium">6 - Look at aquarium </button>
+            <button type="submit" id="Exclamation_2">7 - Unbelievable ?! </button>
+            <button type="submit" id="weAreSharks_2">8 - We are sharks </button>
+            <button type="submit" id="No_2">9 - No !</button>
+            <button type="submit" id="Excited_2">10 - Yes !</button>
+            <button type="submit" id="lookAtAquarium">11 - Look at aquarium </button>
+            <button type="submit" id="interessted_2">12 - Sharks interesting  </button>
+            <button type="submit" id="askVisitors_2">13 - Asks to guests </button>
+            <button type="submit" id="bodyBuilding_2">14 - BodyBuilding </button>
+            <button type="submit" id="iKnow_2">15 - I know ! </button>
+            <button type="submit" id="protectSharks_2">15 - How to protect sharks ?</button>
+            <button type="submit" id="likeSharks_2">16 - Love sharks </button>
+            <button type="submit" id="dancePropose_2">17 - Danse propose </button>
+            <button type="submit" id="start_baby_shark_dance">18 - Baby Shark Dance</button>
+            <button type="submit" id="thanks_2">19 - Thanks !</button>
         </div>
     </div>
 
@@ -333,7 +201,7 @@
                 });
         }
 
-        setInterval(updateBatteryLevel, 5000); // Actualiser toutes les 2 minutes
+        setInterval(updateBatteryLevel, 20000); // Actualiser toutes les 2 minutes
 
         $(document).ready(function() {
 
@@ -482,325 +350,115 @@
                 });
             });
 
-            $("#me").click(function() {
+            $("#de").click(function() {
                 $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/RaiseArm" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
+                        url: "/",
+                        type: "POST",
+                        data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/RaiseArm" }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function(response) {
+                            console.log("Comportement lancé: " + response.message);
+                        },
+                        error: function(error) {
+                            alert("Erreur lors du lancement du comportement: " + error.responseText);
+                        }
                 });
             });
 
-            $("#fear").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/FearSharks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
+            $("#me, #me_2, #fear, #fear_2, #notConvived, #notConvived_2, #sharksFish, #sharksFish_2, #ears, #lookAtAquarium, #Exclamation, #Exclamation_2, #weAreSharks, #No, #No_2, #Excited, #Excited_2, #interessted, #interessted_2, #askVisitors, #askVisitors_2, #bodyBuilding, #bodyBuilding_2, #iKnow, #iKnow_2, #protectSharks, #protectSharks_2, #likeSharks, #likeSharks_2, #dancePropose, #dancePropose_2, #start_baby_shark_dance, #thanks, #thanks_2").click(function(event) {
+                var behavior;
 
-            $("#notConvived").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Thinking" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
+                console.log(this.id);
 
-            $("#sharksFish").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/InteruptOpenArms" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
+                if (this.id === "me") {
+                    behavior = "sharkpresentation-b89c11/RaiseArm";
+                } else if (this.id === "me_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "fear") {
+                    behavior = "sharkpresentation-b89c11/FearSharks";
+                } else if (this.id === "fear_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "notConvived") {
+                    behavior = "sharkpresentation-b89c11/Thinking";
+                } else if (this.id === "notConvived_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "sharksFish") {
+                    behavior = "sharkpresentation-b89c11/InteruptOpenArms";
+                } else if (this.id === "sharksFish_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "ears") {
+                    behavior = "sharkpresentation-b89c11/TouchingEars";
+                } else if (this.id === "lookAtAquarium") {
+                    behavior = "sharkpresentation-b89c11/turnBothSides";
+                } else if (this.id === "Exclamation") {
+                    behavior = "sharkpresentation-b89c11/Exclamation";
+                } else if (this.id === "Exclamation_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "weAreSharks") {
+                    behavior = "sharkpresentation-b89c11/WeAreSharks";
+                } else if (this.id === "No") {
+                    behavior = "sharkpresentation-b89c11/No";
+                } else if (this.id === "No_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "Excited") {
+                    behavior = "sharkpresentation-b89c11/Excited";
+                } else if (this.id === "Excited_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "interessted") {
+                    behavior = "sharkpresentation-b89c11/Interst_about_sharks";
+                } else if (this.id === "interessted_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "askVisitors") {
+                    behavior = "sharkpresentation-b89c11/AskToVisitors";
+                } else if (this.id === "askVisitors_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "bodyBuilding") {
+                    behavior = "sharkpresentation-b89c11/BodyBuilding_Pose";
+                } else if (this.id === "bodyBuilding_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "iKnow") {
+                    behavior = "sharkpresentation-b89c11/Nao_Knows";
+                } else if (this.id === "iKnow_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "protectSharks") {
+                    behavior = "sharkpresentation-b89c11/Why_protect_sharks";
+                } else if (this.id === "protectSharks_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "likeSharks") {
+                    behavior = "sharkpresentation-b89c11/Feels_good_about_sharks";
+                } else if (this.id === "likeSharks_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "dancePropose") {
+                    behavior = "sharkpresentation-b89c11/bby_shark_propose";
+                } else if (this.id === "dancePropose_2") {
+                    behavior = "other_behavior_name";
+                } else if (this.id === "start_baby_shark_dance") {
+                    behavior = "sharkpresentation-b89c11/bby_shark_dance";
+                } else if (this.id === "thanks") {
+                    behavior = "sharkpresentation-b89c11/Thanks";
+                } else if (this.id === "thanks_2") {
+                    behavior = "other_behavior_name";
+                } else {
+                    behavior = "";
+                }
 
-            $("#ears").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/TouchingEars" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
+                if (behavior !== "") {
+                    $.ajax({
+                        url: "/",
+                        type: "POST",
+                        data: JSON.stringify({ action: "start_behavior", behavior: behavior }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function(response) {
+                            console.log("Comportement lancé: " + response.message);
+                        },
+                        error: function(error) {
+                            alert("Erreur lors du lancement du comportement: " + error.responseText);
+                        }
+                    });
+                }
 
-            $("#lookAtAquarium").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/turnBothSides" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#Exclamation").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Exclamation" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#weAreSharks").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/WeAreSharks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#No").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/No" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#Excited").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Excited" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#lookAtAquarium").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/turnBothSides" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#interessted").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Interst_about_sharks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#askVisitors").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/AskToVisitors" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-
-            $("#bodyBuilding").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/BodyBuilding_Pose" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#iKnow").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Nao_Knows" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#protectSharks").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Why_protect_sharks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#likeSharks").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Feels_good_about_sharks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#dancePropose").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/bby_shark_propose" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#start_baby_shark_dance").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "baby_shark_dance-566cf7/behavior_1" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
-            });
-
-            $("#thanks").click(function() {
-                $.ajax({
-                    url: "/",
-                    type: "POST",
-                    data: JSON.stringify({ action: "start_behavior", behavior: "sharkpresentation-b89c11/Thanks" }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(response) {
-                        console.log("Comportement lancé: " + response.message);
-                    },
-                    error: function(error) {
-                        alert("Erreur lors du lancement du comportement: " + error.responseText);
-                    }
-                });
             });
 
         });
