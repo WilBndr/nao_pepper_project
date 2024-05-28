@@ -105,3 +105,6 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Finalisation du guide d'installation** - 21/05
 - **Présentation de l'avancé du projet à Odysseo** 22/05
 - **Implémentation du dernier script fournis par Odysseo** - 23/05
+- **Mise à jour de l'application web ppur incorporer le nouveau script** - 24/05
+- **Correction de bug de l'appli web ajout de l'utilisation de ajax** - 27/25
+- **Réalisation du script en anglais** - 28/05
