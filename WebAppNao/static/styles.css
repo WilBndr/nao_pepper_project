@@ -53,6 +53,10 @@ button {
     transition: background-color 0.3s;
 }
 
+.stop_action:hover {
+    background-color: #b3180d;
+}
+
 button:hover {
     background-color: #45a049;
 }
@@ -68,6 +72,7 @@ button:hover {
     margin: 20px;
     transition: background-color 0.3s;
 }
+
 
 .disconnect {
     margin: auto;

@@ -1,19 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package installOnlyAtStartup="false" uuid="sharkpresentation-b89c11" version="0.0.0">
+<package installOnlyAtStartup="false" uuid="requinspresentation-b89c11" version="0.0.0">
  <names>
-  <name lang="en_US">SharkPres</name>
+  <name lang="en_US">RequinsPres</name>
  </names>
  <supportedLanguages>
-  <language>en_US</language>
+  <language>fr_FR</language>
  </supportedLanguages>
  <descriptionLanguages>
-  <language>en_US</language>
+  <language>fr_FR</language>
  </descriptionLanguages>
  <contents>
   <behaviorContent path="behavior_1">
    <userRequestable/>
    <nature>interactive</nature>
-   <autonomous/>
    <permissions/>
   </behaviorContent>
   <behaviorContent path="turnToTheCrowd">

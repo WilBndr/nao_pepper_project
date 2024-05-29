@@ -38,18 +38,20 @@ def before_first_request():
 
 # Affichage de la liste des comportements installés
 
-"""
+'''
 print("Liste des comportements installés sur le robot NAO :")
 for behavior_info in installed_behaviors:
     print("- {}".format(behavior_info))
-"""
+'''
+
+
 
 @app.route('/battery_level')
 def battery_level():
     # Obtenir le niveau de la batterie du robot NAO
     
-    #battery_level = battery_proxy.getBatteryCharge()
-    battery_level = 50
+    battery_level = battery_proxy.getBatteryCharge()
+
     # Convertir le dictionnaire en JSON en utilisant json.dumps
     return json.dumps({'battery_level': battery_level})
 
@@ -78,19 +80,21 @@ def index_page():
         data = request.get_json()
         action = data.get('action')
         print("Action:", action)
-
+        
         if action == 'start_behavior':
+                if "requinspresentation" in data.get('behavior'):
+                    tts_proxy.setLanguage("French")
+                    print("Langue: Français")
+                else:
+                    tts_proxy.setLanguage("English")
+                    print("Langue: anglais")
                 behavior_name = data.get('behavior')
                 print("Behavior name:", behavior_name)
                 behavior_manager.runBehavior(str(behavior_name))
                 return jsonify({}), 204
         elif action == 'go_posture':
-            motion_proxy.stopMove()
-            behavior_manager.stopAllBehaviors()
-            tts_proxy.stopAll()
             posture_name = data.get('posture')
-            print("Posture name:", posture_name)
-            posture_proxy.goToPosture("Stand", 0.5)  # Réglez la vitesse à 50%
+            posture_proxy.goToPosture(str(posture_name), 0.5)  # Réglez la vitesse à 50%
             return jsonify({}), 204
         elif action == 'set_volume':
             volume = data.get('volume')
@@ -101,6 +105,12 @@ def index_page():
             y = data.get('y')
             theta = data.get('theta')
             motion_proxy.moveToward(x, y, theta)
+            return jsonify({}), 204
+        elif action == 'stop_move':
+            motion_proxy.stopMove()
+            behavior_manager.stopAllBehaviors()
+            tts_proxy.stopAll()
+            posture_proxy.goToPosture("Stand", 0.5)
             return jsonify({}), 204
         else:
             return jsonify({'error': 'Invalid request'}), 400

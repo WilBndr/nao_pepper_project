@@ -59,7 +59,7 @@ class MyClass(GeneratedClass):
     def onInput_onStart(self):
         self.bIsRunning = True
         try:
-            sentence = "I am !"
+            sentence = "Me !"
             id = self.tts.post.say(str(sentence))
             self.ids.append(id)
             self.tts.wait(id, 0)
