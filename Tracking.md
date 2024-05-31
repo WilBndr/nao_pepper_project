@@ -108,3 +108,6 @@ Après un entretien avec le seul professeur de robotique mauricien enseignant à
 - **Mise à jour de l'application web ppur incorporer le nouveau script** - 24/05
 - **Correction de bug de l'appli web ajout de l'utilisation de ajax** - 27/25
 - **Réalisation du script en anglais** - 28/05
+- **Ajout des bouttons pour le script sur l'appli web** - 29/05
+- **Rapport de stage** - 30/05
+- **Test de l'application web et réalisation de vidéo de démonstration** - 31/05 
